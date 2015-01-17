@@ -30,7 +30,7 @@
             <div class="col-xs-6 col-sm-3 col-md-3">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Arun Singh</h5>
+						<h5>Arun Kumar Singh</h5>
                         <p class="subtitle">President</p>
                         <div class="avatar"><img src="img/team/arun.jpg" alt="" class="img-responsive" /></div>
                     </div>
