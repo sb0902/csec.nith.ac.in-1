@@ -1,0 +1,136 @@
+<! doctype html>
+<html>
+<head>
+<title>classes and objects</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html" id="active">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>CLASSES AND OBJECTS</H1>
+<h2>INTRODUCTION</h2>
+<P>The most important feature of C++ is class. It is a new of representing a user defined data type.Before introducing to the concept of class, we revise the concept of structures.<i>Structure</i> is a user defined data types which is used to pack together different types of data types.Once structure is created, we can declare its variables.The limitation of structures is that they do not permit <i>data hiding.</i> Structure members can be accessed by any function in the scope. <br/> In C++, a class can have both data members and member functions.It also permits data hiding by making them <i>private.</i>
+<p id="box"><i><b>NOTE:</b></i> In structures, by default the members are public and in class,by default members are private.</p></P>
+<h2>SPECIFYING CLASS</h2>
+<p>A class can be specified in two parts:
+	<ol>
+		<li><a href="#declare">Class Declaration</a></li>
+		<li><a href="#define">Class Function Defination</a></li>
+	</ol>
+<br/>
+1.The general form of <u><b><a name="declare">class declaration</a></b></u> is:
+
+<pre>
+<div id="box">
+class class_name
+{
+   	private: variable declarations;
+   		  function declarations;
+   	public:  variable declarations;
+   		  function declarations;
+};
+</div>
+</pre>
+
+1. The keyword <b>class</b> specifies that it is a class. The keywords <b>private</b> and <b>public</b> are the visbility modes.<br/>2. The class members that are declared in private section can be accessed only within the class.<br/> 3.The public members can be accessed outside the class also.<br/>
+ Consider a simple class example:
+
+<pre>
+	<div id="box">
+class book
+{
+	int number;			    //variable declaration
+	float cost;
+	public: void getdata(int a,float b); //function declaration
+		 void putdata();
+};
+</div>
+</pre>
+</p>
+<h3>Creating Objects</h3>
+<p>Once a class has been declared, we can create objects of that class type.For eg. <b>book x;</b>. The necessary memory space is allocated to the object at this stage.
+</p>
+<br/>
+<h3>Accessing Class Members</h3>
+<p>Private data of the class cannot be accesses directly ouside the class. They can be accessed using member functions.The syntax of calling a member function is:<br/> <b>object_name.function_name(actual arguements);</b><br/>
+For eg. <b>x.getdata(3,20);</b>. Similarly we can access data members using dot(.) operator.Public data members can be accessed directly whereas, private are accessed through member functions.</p>
+<br/>
+<h2><a name="define">DEFINING MEMBER FUNCTIONS</a></h2>
+<p>Member function can be defined in two places:
+<ul>
+	<li>Outside the class</li>
+  	<li>Inside the class</li>
+ </ul>
+1.<b><u>Ouside the class</u>:</b>  Outside the class, member functions are defined like normal functions, but there is a label that tells the compiler to which class it belongs to. The general form of member function defination is:<br/>
+<pre>
+return-type class-name::function-name(arguement declaration)
+{
+ 	function body
+ }
+</pre>
+2. <b><u>Inside the class</u>:</b>  Function can also be defined inside the class. When a function is defined inside the class, it is treated like as an inline function.Therefore, all the restrictions of inline function are also applicable here.For eg:<br/>
+<pre>
+class book
+{
+ 	int number; float cost;
+ 	public:  void getdata(int a,float b)
+ 			{
+ 				number=a; cost=b;
+ 			}
+ 			void putdata()
+ 			{
+ 				cout<< number<<"\n"<< cost;
+ 			}
+ }
+ </pre>
+</p>
+<h3>NESTING OF MEMBER FUNCTIONS</h3>
+<p>A member function can be called by using its name inside another member function of the same class. This is known as <i><b>nesting of member functions</b></i>.</p>
+<h3>MEMORY ALLOCATION FOR OBJECTS</h3>
+<p>We have stated that memory space is allocated for an object when it is declared and not when a class is specified.The statement is partially correct. The member functions are created and placed in the memory space only once when they are defined as a part of class specification.All the objects belonging to that class use the same member functions.Only space for member variables is allocated separately for each object.</p>
+<h3>STATIC DATA MEMBER</h3>
+<p>A data member of a class can be declared as static.It has the following properties:
+<ul>
+ <li>It is initialized with zero when object of a class is created.</li>
+ <li>Only one copy of that member is created for that class. All the objects share the same copy.</li>
+<li>It is visible only inside the class, but its life is the entire program.</li>
+</ul>
+Static members are commonly used to maintain values common to the entire class.The type and scope of the static variable is defined outside the class.This is necessary as they are stored separately.</p>
+<h3>STATIC MEMBER FUNCTIONS</h3>
+<p>A member function declared as static has the following properties:
+<ul>
+ <li>Static member functions have access only to the static members of the same class.</li>
+ <li>Static member function can be called using classname. Syntax is: <b>class-name::function-name;</b></li>
+</ul>
+</p>
+<h3>OBJECTS AS FUNCTION ARGUEMENTS</h3>
+<p>Like any other datatype objects can also be passed as function arguements.This can be done in two ways: 1) passing object by value, 2) passing object by reference.When the object is passed by call by value, the changes made to data member in the function are not reflected in the objects. In call by reference, changes are reflected in actual objects.An object can also be passed as an arguement to a non-member function.</p>
+<br/>
+<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

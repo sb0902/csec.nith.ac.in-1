@@ -1,0 +1,202 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>Decition Making Statements</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html" id="active"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+<div class="main">
+					
+<h1> Decision Making Instruction</h1>
+<p>
+    <a href="#if-else">if-else</a><br/>
+    <a href="#switch">switch</a></br/>
+    <a href="#the conditional operator">the conditional operator</a></br>
+	
+</p>
+
+<h2 id="if">The <i><b>if</b></i> Statement</h2>
+<p>The general form of this statement is:</br>
+		<pre><div id="box">
+	if(this condition is true)
+          execute this statement;
+	    </div></pre>
+</p>
+ <p>The condition following the keyword <b>if</b> is always enclosed in pair of 
+ parentheses.Here the expression can be any valid expression including a relational
+ expression.We can even use arithmetic expressions in <b>if</b> statement.<br/>
+ For example:<br/>
+        <pre>  <div id="box">
+		  if(3+2%5)
+		   printf("this works");
+		   </div></pre>
+ 
+ There can be two cases:</br>
+ 1. Condition is <i>True</i>:</br>
+    Then the statement is executed.</br>
+ 2. Condition is <i>Not True</i>:</br>
+    Then the statement is not executed,instead the programs skips past it.</br>
+	
+<b>NOTE </b>:Use parentheses when multiple statement are to be executed.</br>
+For example:</br>
+			<pre><div id="box">
+	if(condition)
+		{
+		 statement1;
+		 statement2;
+		 ...
+		 ...
+	 }
+</div></pre>
+After the execution of if block the statement next to it is executed i.e. 
+normal execution of program takes place.</br>
+</p>
+
+<h2 id="if-else">The <i><b>if-else</b></i> Statement</h2>
+<p>
+We use <b>if-else</b> statement when we want to execute one group of statement
+if the conditions evaluates to true and another group of statement if expression 
+evaluates to false, whereas in case of <b>if</b>,nothing is done when expression evaluates
+to false.</br>
+ The general form of this statement is:</br>
+		<pre><div id="box">
+	if(this condition is true)
+         execute this statement;
+	else
+	     execute this statement;
+	</div></pre>
+<b>Few points worth noting...</b></br>
+   (a)The group of statements after the <b>if</b> upto and not including the <b>else</b> is called
+     an 'if block'.Similarly, the statements after the <b>else</b> form the 'else block'.</br>
+   (b)<b>else</b> is written exactly below the <b>if</b>.</br>
+   (c)As with the <b>if</b>statement,the default scope of <b>else</b>is also the statement immediately 
+      after the <b>else</b>.To override this default scope,a pair of braces can be used.</br>
+
+	  <h3>Nested <i>if-elses</i></h3>
+We can even write an entire <b>if-else</b> construct withinin either the body of <b>if</b> statement or <b>if-else</b>
+statement.This is called 'nesting' of ifs.</br>
+For example:</br>
+    <pre><div id="box">
+     if(condition 1)
+      {
+	    if(condition 2)
+		 statement1;
+		else
+		 statement2;
+	}
+     else
+      {
+        if(condition 3)
+          statement3;
+         else
+           statement4;
+	 }   
+	 </div></pre>
+	 
+<b>NOTE</b>: C allows usage of three logical operators, namely, &&,|| and !.
+These are to be read as 'AND' 'OR' 'NOT' respectively.These can be used to in conditional
+expression of <b>if</b> statement.</br>
+</p>
+
+<h2 id="switch">The <i><b>switch</b></i> Statement</h2>
+<p>The <b>switch</b> statement is used where we are required to make a choice  between number 
+of alternatives rather than only one or two.</br>
+
+The general form of this statement is:</br>
+     <pre> <div id="box">
+	     switch(integer expression)
+		 {
+		      case constant 1:
+			    do this;
+				break;
+			  case constant 2:
+			     do this;
+				 break;
+			  case constant 3:
+			      do this;
+				  break;
+			  default:
+                 do this;
+          }
+
+Any number of cases can be used.		  
+		</div>	</pre>
+The integer expression following the keyword <b>switch</b> is any C expression that will yield an integer
+value or could be an integer constant like 1,2,or 3.The keyword <b>case</b> is followed by an integer or a
+character constant.Each constant in each <b>case</b> must be different from all the others.</br>
+
+<b>How execution takes place?</b></br>
+<ol><li>Integer expression following the keyword <b>switch</b> is evaluated.</li>
+    <li>The value it gives is then matched, one by one, against the constant values that follows case statements.</li>
+	<li>When a match is found, the program executes the statements following only that case.</li>
+	<b>NOTE</b>:If break statement is not used after the cases then all the statements after valid case will be executed.</br>
+	<li>If no match is found with any case statements, only the statements of the default are executed.</li>
+	</ol>
+	 
+<b>Some tips about the usage of switch</b></br>
+(a)You can use cases in any order unlike given in above example.</br>
+(b)You are also allowed to use <b>char</b> values in <b>case</b> and <b>switch</b>.</br>
+(c)You can also execute a common set of statement for multiple <b>cases</b>.</br>
+    like</br>
+	<pre><div id="box">
+	    switch(integer expression)
+		{ 
+		  case 1:
+		  case 2:
+		     statement1;
+		  case 3:
+		  case 4:
+		      statement2;
+		   ...
+		   ...
+		   ...
+		   default:
+		   statement;
+		   }
+		   </div></pre>
+(d)If we have no <b>default</b> case, then the program simply falls through the entire <b>switch</b> and continues 
+with the next instruction (if any,) that follows the closing brace of <b>switch</b>.</br>
+(e)a switch may occur within another, called nested <b>switch</b> statements.</br>
+</p>
+ 
+<h2 id="the conditional operator">The <i><b>Conditional Operators</b></i> </h2>
+<p>The conditional operators <b>?</b> and <b>:</b> are sometimes called ternary operators since they takes three
+arguments.</br>
+The general form is,</br>
+<pre><div id="box">
+        expression 1? expression 2: expression 3
+</div></pre>
+<i><b>What this expression says is:</b></i>"if expression 1 is true(that is,if its value is non zero),then the value
+returned will be expression 2,otherwise the value returned will be expression 3".</br>
+
+</p>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>	
+</body>
+</html>
+		

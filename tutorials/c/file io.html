@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>file io</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html" id="active">File Input/Output</a></li>
+  </ul>
+</div>
+
+<div class="main">
+
+<h1>Files</h1>
+<br>
+<p>The C I/O system supplies a consistent interface to the programmer independent of the actual device being accessed. That is, the C I/O system provides a level of abstraction between the programmer and the device. This abstraction is called a stream, and the actual device is called a file. A file may be called a collection of bytes stored on a secondary storage device, which is generally a disk of some kind. Using C programming, we can perform a number of operations on files in secondary storage.<br>
+You associate a file with a stream by opening it through <i>open</i> function. If the file can support position requests, opening that file also initializes the <i>file position indicator</i> to the start of the file. As each character is read from or written to the file, the position indicator is incremented, ensuring progression through the file.<br>
+You disassociate a file from a specific stream with a <i>close</i> operation. If you close a file opened for output, the contents, if any, of its associated stream are written to the external device. This process, generally referred to as <i>flushing</i> the stream, guarantees that no information is accidentally left in the disk buffer.</p>
+<br>
+<p>In the coming sections, we will learn about:</p>
+<ul><li><a href="#filePointer">The File Pointer</a></li>
+	<li><a href="#openFile">Opening a File</a></li>
+	<li><a href="#closeFile">Closing a File</a></li>
+	<li><a href="#writeFile">Writing to a File</a></li>
+	<li><a href="#readFile">Reading from a File</a></li>
+	<li><a href="#eraseFile">Erasing a File</a></li>
+</ul>
+<br>
+
+<h3><a id="filePointer">The File Pointer</a></h3>
+<br>
+<p>The file pointer is the common thread that unites the C I/O system. A file pointer is a pointer to a structure of type <b>FILE</b>. It points to information that defines various things about the file, including its name, status, and the current position of the file. The file pointer identifies a specific file and is used by the associated stream to direct the operation of the I/O functions. To use a file pointer, the following statement is used:
+<div id="box">FILE *fp;</div>
+Here, <i>fp</i> is the name of the file pointer.</p>
+<br>
+
+<h3><a id="openFile">Opening a File</a></h3>
+<br>
+<p>To open a file and link it with a stream, use the function <b>fopen()</b>. This returns the file pointer to that file. The prototype of <i>fopen()</i> is 
+<div id="box">FILE *fopen(const char *filename, const char *mode);</div>
+<br>
+The different modes in which a file can be opened are
+<table>
+  <tr>
+    <th>Mode</th>
+    <th>Meaning</th>		
+  </tr>
+  <tr>
+    <td>r</td>
+    <td>Open a text file for reading</td>		
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>Open a text file for writing</td>		
+  </tr>
+  <tr>
+    <td>a</td>
+    <td>Append to a text file</td>		
+  </tr>
+  <tr>
+    <td>rb</td>
+    <td>Open a binary file for reading</td>		
+  </tr>
+  <tr>
+    <td>wb</td>
+    <td>Open a binary file for writing</td>		
+  </tr>
+  <tr>
+    <td>ab</td>
+    <td>Append to a binary file</td>		
+  </tr>
+  <tr>
+	<td>r+</td>
+	<td>Open a text file for read/write</td>
+  </tr>
+  <tr>
+	<td>w+</td>
+	<td>Create a text file for read/write</td>
+  </tr>
+  <tr>
+	<td>a+</td>
+	<td>Append or Create a text file for read/write</td>
+  </tr>
+  <tr>
+	<td>r+b</td>
+	<td>Open a binary file for read/write</td>
+  </tr>
+  <tr>
+	<td>w+b</td>
+	<td>Create a binary file for read/write</td>
+  </tr>
+  <tr>
+	<td>a+b</td>
+	<td>Append or Create a binary file for read/write</td>
+  </tr>
+</table>
+<br>
+For an example :
+<div id="box">fp=FILE *fopen ("Student.dat","r");</div>
+If an error occurs while opening the file, then the pointer points to a NULL value.</p>
+
+<br>
+<h3><a id="closeFile">Closing a File</a></h3>
+<br>
+<p>The function <b>fclose()</b> closes a stream that was opened using fopen(). It writes any data still remaining in the disk buffer to the file. It also frees the file control block associated with the stream, making it available for reuse. The prototype of this function is
+<div id="box">int fclose(FILE *fp);</div>
+where <i>fp</i>is the file pointer returned by the call to fopen(). This reurns zero for a successful close operation, while it reaturns EOF (enf of file : A special character, whose ASCII value is 26, signifies end of file) for an unsuccessful one.</p>
+
+<h3><a id="writeFile">Writing to a File</a></h3>
+<p>The C I/O system defines two equivalent functions that output a character. They are <b>putc( )</b> and <b>fputc( )</b>. These functions write a character to a file. The syntax is:
+<div id="box">int putc(int ch, FILE *fp);</div>
+where fp is the file pointer returned by fopen( ), and ch is the character to be written. A successful putc() operation returns the character written, while an unsuccessful one returns EOF.
+The function fputs() is used to output a string to the output stream referenced to by the file pointer. The syntax is:
+<div id="box">int fputs( const char *s, FILE *fp );</div>
+where fp is the file pointer returned by fopen( ), and s is the string to be written. It returns a non-negative value on success. Otherwise, EOF is returned.
+Also, fprintf() is used to send formatted output to a stream as shown below:
+<pre><div id="box">int main(void)
+{
+    FILE *fp;
+    int i;
+  
+    fp = fopen("results.dat", "w");
+    if (fp == NULL) {
+       printf("I couldn't open results.dat for writing.\n");
+       exit(0);
+    }
+   
+    for (i=0; i<=10; ++i)
+       fprintf(fp, "%d, %d\n", i, i*i);
+   
+    return 0;
+}</div></pre>
+fprintf() works exactly in the same manner as printf() except the first argument is the file pointer, fp which points to the file we're writing to.
+</p>
+<h3><a id="readFile">Reading from a File</a></h3>
+<p>The C I/O system defines two equivalent functions that read a character. They are <b>getc( )</b> and <b>fgetc( )</b>. They read a character from the file opened. The syntax of getc() is :</p>
+<div id="box">int getc(FILE *fp);</div>
+<p>where fp is the file pointer returned by fopen( ). This returns an integer when the character is read and an EOF when the end of file has been reached or when an error occurs. Hence to read the end of file, the following code is used:
+<pre><div id="box">do
+{
+	ch = getc(fp);
+} while(ch!=EOF);</div></pre>
+The function to read a string from a file is <b>fgets()</b>. Following is its syntax:
+<div if="box">char *fgets(char *str, int n, FILE *stream)</div>
+This reads from the specified stream and stores the string in a string pointed to by str. This reads till either (n-1) characters, or a new line feed character or the end of file, whichever comes first and appends a null character to terminate the read string. An example for reading from a file and displaying on the screen:
+<pre><div id="box"><xmp>#include <stdio.h></xmp>
+main( )
+{
+	FILE *fp ;
+	char s[80] ;
+	fp = fopen ( "POEM.TXT", "r" ) ;
+	if ( fp == NULL )
+	{	
+		puts ( "Cannot open file" ) ;
+		exit( ) ;
+	}	
+	while ( fgets ( s, 79, fp ) != NULL )
+	printf ( "%s" , s ) ;
+	fclose ( fp ) ;
+}</div></pre>
+This program reads from a file named "POEM.TXT", stores in string s and displays the latter. </p>
+
+<h3><a id="eraseFile">Erasing a File</a></h3>
+<p>The remove( ) function erases the specified file. Its syntax of the function is:
+<div id="box">int remove(const char *filename);</div>
+It returns zero if successful. Otherwise, it returns a non-zero value.</p>
+  <br/>
+  <br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>   
+</body>
+</html>

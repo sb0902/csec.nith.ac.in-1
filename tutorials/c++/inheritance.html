@@ -1,0 +1,93 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>constructor and destructor</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C++ TUTORIALS</div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html" >Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html" id="active">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+	<h1>INHERITANCE:EXTENDING CLASSES</h1>
+	<p>C++ supports reusability by creating new classes,reusing the properties of the existing ones.The mechanism of deriving new classes 		from an old one is called inheritance.The old one is referred as the base class and the new on is called the derived class or 		subclass.The derived class inherits some or all properties of the base class.A class can inherit properties from more than one class 		or levels.</p>
+
+	<h3>DERIVED CLASS-</h3>
+	<p>It is defined by specifying its relation with the base class in addition to its own details.
+	<pre>
+	<div id="box">
+	class derived-class-name : visibility-mode base-class-name
+	{
+	.......//
+	.......// members of derived class
+	.......//
+	};
+	</div>
+	</pre>
+	The ";" indicates that the derived-class-name is derived from the base-class-name.The visibility is optional and can be private or 		public.The default mode is private.It specifies whether the features of base class are privately derived or publicly derived.<br>
+	When base class is privately inherited,the public members of the base class become private member of the derived class and hencethe 		public members of the base class can only be accessed by the member functions of the derived class.No member of the base class is 		accessible to the objects of the derived class.<br>
+	When base class is publicly inherited,the pulic members of the base class become the public members of the derived class and they are 		accissible to the objects of the derived class.<br>
+	In both cases the private members are not inherited and therefore,the private members of the base class will never become the members 		of its derived class.<br>
+	</p>
+	<h3>MAKING A PRIVATE MEMBER INHERITABLE-/</h3>
+	<p>Private member can be inherited by modifying the the visibility limit of the private member by making it public.
+	C++ provides a third visibility modifier,protected,which serve a limited purpose in inheritance.A member declared as protected is 	accessible by the member functions within the class and any class immediately derived from it and not by the functions outside these two 		classes.<br><br>
+	A protected member is inherited in public moode, it becomes protected in the derived class too and therefore is accessible by the 	member functions of the derived class.A protected member inherited in private mode becomes private in derived class.<br>
+	A class can be derived in protected mode also.Both the public and protected members of the base class become protected members of the 		derived class.The following do not have access to the private and protected members-<br>
+	<ol>
+		<li>A function that is a friend of the class.</li>
+		<li>A member function of a class that is a friend of the class.</li>
+		<li>A mmber function of a derived class.</li>
+	</ol>
+	</p>
+	<p><u>There 5 types of inheritances,discussed as follows-</u><br>
+	<ul>
+	<li><u>SINGLE INHERITANCE</u>-a derived class with a single base class.If a derived class and base class have the same name,the 	derived class function supersedes the base class definition.The base class function will be called only if the derived class does not 		redefine the function.</li>
+	<li><u>MULTI-LEVEL INHERITANCE-</u> a derived class with more than one base class.Class A serves as base class to B,which inturn 	serves as base class to C.The class B is known as intermediate base class since it provides a link for the inheritance  between A and 		C.The chain ABC is known as inheritance path.</li>
+	<li><u>MULTIPLE INHERITANCE-</u> A class with the attributes of two or more classes.Syntax-
+	<pre>
+	<div id="box">
+	class D: visibility B-1,visibility B-2..
+	{
+	   ....
+	   ....
+	  ....
+	};
+	</div>
+	</pre>
+	Ambiguity Resolution in Inheritance: we may face a problem in using multilevel inheritance,when a function with same name appears in 		more than one base class.We can solve this problem by defining a named instance within the derived class,using class resolution 	operator with the function.</li>
+	<li><u>HIERARCHICAL INHERITANCE-</u>the base class includes all the features that are common to the subclasses.A subclass can be 		constructed by inheriting the properties of the base class.A base class can serve as a base class for the lower level classes and so 		on.</li>
+	<li><u>HYBRID INHERITANCE-</u>a combination of multiple and multipath ihneritance.</li>
+	</ul>
+	</p>
+	<br/>
+	<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>
+
+
+
+

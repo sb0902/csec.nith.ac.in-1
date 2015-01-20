@@ -1,0 +1,114 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>A BRIEF INTRODUCTION TO C++</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" id="active" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>A BRIEF INTRODUCTION TO C++</h1>
+<p>What is C++?<br/>
+C++ is a object oriented language.It was developed by BJARNE STROUSTRUP at AT&T BELL LABORATORIES in early 1980s.<i><a href="#Object oriented language">Object oriented language</a></i> includes some features as:
+<ul>
+<li><a  href="#DATA"  >DATA ABSTRACTION</a></li>
+	<li><a href="#encap" >ENCAPSULATION</a></li>
+	<li><a href="#INHERIT" >INHERITANCE</a></li>
+	<li><a  href="#poly"  >POLYMORPHISM</a></li>
+	<li><a href="#DYNAMIC" >DYNAMIC BINDING</a></li>
+</ul>	
+<h2><a name="Object oriented language">Object oriented language</a></h2>
+<p><br/>
+The characteristics of an object oriented language are:
+<ul>
+	<li>Emphasis is on data rather than procedure.</li>
+	<li>Programs are divided into what are known as objects</li>
+	<li>Data structures are designed such that they characterize the objects</li>
+	<li>Functions and data are tied together in a single entity</li>
+	<li>Follows a bottom-up approach in program design</li>
+</ul>
+
+</p>
+<h3><a name="DATA">DATA ABSTRACTION</a></h3>
+<p>The act of representing essential features without including the background details.</p>
+<h3><a name="encap">ENCAPSULATION</a></h3>
+<p>The wrapping of data and functions together in a single entity.</p>
+<h3><a name="INHERIT">INHERITANCE</a></h3>
+<p>Inheritance is the process by which objects of one class acquires the properties of another class.</p>
+<h3><a name="poly">POLYMORPHISM</a></h3>
+<p>The ability to take more than one form.Eg:Operator and function overloading.</p>
+<h3><a name="DYNAMIC">DYNAMIC BINDING</a></h3>
+<p>The linking of a procedure call to the code to be executed in response to the call.Also known as <i>late binding </i>means that code associated with a given procedure call is not known until the time of call at run time.</p>
+
+<h2><br/>A SIMPLE C++ PROGRAM</h2>
+<p>
+<div id="box">
+	<pre>
+       #include < iostream >     <i>//include header file</i>
+       using namespace std;
+       int main()
+       { 
+           cout<<"C++ IS OBJECT ORIENTED LANGUAGE\n";  <i>//C++ STATEMENT</i>
+           return 0;
+       }
+       </div>		   
+		</pre>
+</p>
+<h3>PROGRAM FEATURES</h3>
+<p>The above example contains  only main().Every C++ program must have a function main().<b>COMMENTS</b> start with double slash symbol and terminate at the end of the file.For multiple comments we use "/*".
+<b>OUTPUT OPERATOR</b> "cout" is an identifier which is a predefined object that represents the standard output stream in c++ with insertion operator "<<".
+WHILE "cin" is and object for input with extraction operator ">>".
+</p>
+
+<h3>THE IOSTREAM FILE</h3>
+<p>A C++ program typically contains pre processor directive statements at the beginning.
+Such statements are preceded with # symbol to indicate the presence of a pre-processor directive to the compiler which in turn lets the preprocessor handle the # directive symbol. </p>
+<h3>NAMESPACE</h3>
+<p>NAMESPACE is a new concept which defines a scope for the identifiers that are used in a program.In "using namespace std" where <i>std</i> is namespace where ANSI C++ standard class libraries are defines."using" & "namespace" are two new keywords.
+</p>
+<h3>RETURN TYPE OF main().</h3><p>
+In c++,main() returns an integer type value to the operating system.It returns 0 means the program ran successfully.</p>
+<h2><i>ANOTHER EXAMPLE</i></h2></p>
+<div id="box">
+	<pre>
+		#include< iostream >
+		using namespace std;
+		
+		int main()
+		{
+		  float n;   <i>//variable</i>
+		  cin>>n;    <i>//input</i>         
+	          return 0;
+		 }</div>
+	</pre>
+<B>NOTE:iostream is within "<>" angle brackets.</B>
+</p>
+<br/>
+<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

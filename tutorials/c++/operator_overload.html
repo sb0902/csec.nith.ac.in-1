@@ -1,0 +1,307 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>operator overloading</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html"id="active">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html">Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>OPERATOR OVERLOADING</h1>
+<p>C++ permits us to add two user defined types with the same syntax as applied to absic tyoes. C++ has the ability to provide the operators with a special meaning for a data type. The mechanism of giving such special meaning to an operator is known as <b><i>operator overloading.</i></b>It provides flexible option to change the defination of the operator.We can overload all the C++ operators except the following:
+<ul>
+ 	<li>id member access operators(. , .*)</li>
+ 	<li>Scope resolution operator(::)</li>
+ 	<li>Size of operator( sizeof )</li>
+ 	<li>Conditional operator(?:)</li>
+ </ul>
+ <p id="box">
+ 	<i><b>NOTE:</b></i> The semantics of an operator can be extended but we cannot change its syntax, the gramatical rules that govern its use such as number of operand, precedence and associativity.
+ </p>
+ <h3>Defining Operator Overloading</h3>
+ <p>The general format of operator overloading is:
+ 	<pre
+ 		<p id="class">
+ 			return type idname :: operator op(arglist)
+ 			{
+ 				function body//task defined
+ 			}
+ 		</p>
+ 	</pre>
+ 	Here <b>operator </b>op is the function name and <b>operator</b> is a keyword.Operator functions must be either <a href="#member">member functions</a> or <a href="#friend">friend functions</a>.The basic difference is that a member function will have one arguement for unary and two arguement for binary operators, while a member function has no arguement for unary and ine arguement for binary operator.This is because the object used to invoke the function is implicitly passed to function.Operator functions can be declared as:
+ 	<b><pre>
+ 		vector operator +(vector);		//binary
+ 	 	vector operator -();			//unary
+ 	 	friend vector operator +(vector,vector);//binary
+ 	 	friend vector operator -(vector);	//unary
+ 	 </pre>
+ 	 </b>	
+ 	  The overloaded operator functions can be invoked by expressions like:
+ 	<b><pre>
+ 	  	op x; or x op;	  //unary using member function
+ 	  	x op y;		  //binary using member function
+ 	  	operator op(x);	  //unary using friend function
+ 	  	operator op(x,y); //binary using friend function
+ 	 </pre></b>
+</p>
+<hr/>
+<h2><a name="member">OPERATOR OVERLOADING USING MEMBER FUNCTION</a></h2>
+<h3>1. Overloading Unary Operators</h3>
+<p>Let us consider the unary minus operator.The unary minus operator when applied changes the sign of the data items.
+	<pre>
+	<div id="box">
+		#include< iostream>
+	 	using namespace std;
+	 	id sign
+	 	{
+	 		int x,y;
+	 		public:
+	 		void getdata(int a,int b)
+	 		{
+	 			x=a; y=b;
+	 		}
+	 		void display()
+	 		{
+	 			cout<<" x="<< x;
+	 			cout<<" y="<< y;
+	 		}
+	 		void operator -()
+	 		{
+	 			x=-x; y=-y;
+	 		}
+	 	};
+
+	 	int main()
+	 	{
+	 		sign s;
+	 		s.getdata(5,8);
+	 		cout<<"\ns=";
+	 		s.display();
+	 		-s;
+	 		cout<<"\n-s=";
+	 		s.display();
+	 		return 0;
+	 	}
+	 </div>
+	</pre>
+<pre>
+The output of the program is:
+	s= x=5 y=8
+	-s= x=-5 y=-8
+</pre>
+</p>
+<h3>2. Overloading binary Operators</h3>
+<p>Let us consider the binary + operator.The binary + operator adds various the data items of two different objects.
+	<pre>
+	<div id="box">
+		#include< iostream>
+	 	using namespace std;
+	 	id sum
+	 	{
+	 		int x,y;
+	 		public:
+	 		void getdata(int a,int b)
+	 		{
+	 			x=a; y=b;
+	 		}
+	 		void display()
+	 		{
+	 			cout<<" x="<< x;
+	 			cout<<" y="<< y;
+	 		}
+	 		sum operator +(sum c)
+	 		{
+	 			sum temp;
+	 			temp.x=x+c.x;
+	 			temp.y=y+c.y;
+	 		}
+	 	};
+
+	 	int main()
+	 	{
+	 		sign s1,s2,s3;
+	 		s1.getdata(5,8);
+	 		s2.getdata(2,9);
+	 		s3=s1+s2;
+	 		cout<<"value of s3=";
+	 		s3.display();
+	 		return 0;
+	 	}
+	 </div>
+	</pre>
+<p>
+The output of the program is:<br/>
+	value of s3= x=7 y=17
+<br/>
+Note the following things about operator function:<br/>
+1. It recieves only one <b>sum</b> arguement.<br/>
+2. It returns <b>sum</b> type arguement.<br/>
+3. It is a member functiTon.<br/>
+The statement "s3=s1+s2;" invokes the function.The object s1 takes the responsibility of invoking the function and s2 plays role of arguement.So, the above expression is equivalent to : "s3=s1.operator +(s2);".
+</p>
+<p id ="box"> <b><i>NOTE:</i></b> As a rule in overloading, the left hand operarand is used to invoke the operator function and the right hand is passed as arguement.</p>
+</p>
+<hr/>
+<br/>
+<h2><a name="friend">OPERATOR OVERLOADING USING FRIEND FUNCTION</a></h2>
+<h3>1. Overloading Unary Operators</h3>
+<br/>
+<p>We can overload unary operator minus using friend function as follows:
+	<pre>
+	<div id="box">
+	friend void operator -(sign &s);
+
+	void operator -(sign &s)
+	{
+		s.x=-s.x;
+		s.y=-s.y;
+	}
+	</div></pre>
+	<p id="box">
+	<b><i>NOTE:</i></b> The arguement is passed through reference. Therefore the changes made inside operator function are reflected in the called object.</p>
+</p>
+<h3>2. OVERLOADING BINARY OPERATORS</h3>
+<P>Overloading of binary operators using friend function requires two arguements. In most cases, we will get the same results by use of either friend functin or member function. But there are situations where we can use only friend function. For eg., when we have two diffrent types of operand, say, one basic type and other object type.In this case statements like: <br/>
+<pre>
+ 	<b>A=B+2;</b>
+where A and B are objects of same id will work, but statement like:
+	<b>A=2+B;</b>
+will not work.This is because the left hand operator is used to invoke the member funtion and should be an object. Here friend function is helpfull.
+</pre>
+Consider a program to understand overloading using friend function:
+<pre>
+	<div id="box">
+ 	#include< iostream>
+ 	const size=3;
+ 	id vector
+ 	{
+ 		int v[size];
+ 		public:
+ 		vector()
+ 		{
+ 			for(int i=0;i< size;i++)
+ 				v[i]=0;
+ 		}
+ 		vector(int *x);
+ 		friend vector operator *(int a,vector b);
+ 		friend vector operator *(vector b,int a);
+ 		friend istream & operator >> (istream &, vector &);
+ 		friend ostream & operator << (ostream &, vector &);
+ 	};
+ 	vector::vector(int *x)
+ 	{
+ 		for(int i=0;i< size;i++)
+ 			v[i]=x[i];
+ 	}
+ 	vector operator *(int a,vector b)
+ 	{
+ 		vector c;
+ 		for(int i=0;i< size;i++)
+ 			c.v[i]=a*b.v[i];
+ 		return c;
+ 	}
+ 	vector operator *(vector b,int a)
+ 	{
+ 		vector c;
+ 		for(int i=0;i< size;i++)
+ 			c.v[i]=b.v[i]*a;
+ 		return c;
+ 	}
+ 	istream & operator >> (istream &din,vector &b)
+ 	{
+ 		for(int i=0;i< size;i++)
+ 			din>>b.v[i];
+ 		return din;
+ 	}
+ 	ostream & operator << (ostream &dout,vector &b)
+ 	{
+ 		for(int i=0;i< size;i++)
+ 			dout<< b.v[i]<<", ";
+ 		return dout;
+ 	}
+ 	int x[size]={2,4,6};
+
+ 	int main()
+ 	{
+ 		vector m;
+ 		vector n=x;
+ 		cout<<"enter elements of m\n";
+ 		cin>>m;					//invokes operator >> function
+ 		cout<<"m= "<< m<<"\n";	//invokes operator >> function
+ 		vector p,q;
+ 		p=2*m;
+ 		q=n*2;
+ 		cout<<"p= "<< p<<"\n";	//invokes friend 1
+ 		cout<<"q= "<< q<<"\n";	//invokes friend 2
+ 		return 0;
+ 	}
+ 	</div></pre>		
+ 	<pre>
+ Output is:
+ enter elements of m
+ 5 10 15
+ m= 5,10,15
+ p= 10,20,30
+ q= 4,8,12
+</pre>
+<p id="box"><b><i>NOTE:</i></b> We have overloaded << and >> operators using friend function. <i>istream</i> and <i>ostream</i> are the ides defined in <b>iosream</b> file included in program.
+</p>
+</p>
+<hr/>
+<h2>RULES FOR OPERATOR OVERLOADING</h2>
+<ol>
+	<li>Only exsisting operators can be overloaded.</li>
+	<li>Overloaded operators follow the syntax rules of original operators.</li>
+	<li>We cannot use friend function to overload certain operators.
+		<table>
+			<tr>
+				<td>=</td>
+			 	<td>Assignment operator</td>
+			 </tr>
+			 <tr>
+			  	<td>()</td>
+			  	<td>Function call operator</td>
+			  </tr>
+			  <tr>
+			  	<td>[]</td>
+			  	<td>subscripting operator</td>
+			  </tr>
+			  <tr>
+			  	<td>-></td>
+			  	<td>id member access operator</td>
+			  </tr>
+		</table>
+	</li>
+	<li>When using binary operator overloading through member function, the left hand operator must be an object of relevent id.</li>
+</ol>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>
+
+

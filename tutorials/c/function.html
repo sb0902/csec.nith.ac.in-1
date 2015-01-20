@@ -1,0 +1,398 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>Functions and Pointers</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html" id="active">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+	
+	<div class="main">
+	<h1>Functions & Pointers</h1>
+	<h2>What is a Function </h2>
+	<p>A function is a self-contained block of statements that perform a coherent task of some kind. Every C program can be thought of as a collection of these functions.  Every C program has at least one function, which is main(), and all the most trivial programs can define additional functions.You can divide up your code into separate functions. How you divide up your code among different functions is up to you, but logically the division usually is so each function performs a specific task.</p>
+	
+	<h2>Structure of a Function</h2>
+	<p>There are two main parts of the function. The function header and the function body.</p>
+	<pre>
+	<div id="box">
+	int sum(int x, int y)
+{
+	int ans = 0; 	//holds the answer that will be returned
+	ans = x + y;	//calculate the sum
+	return ans		//return the answer
+}
+     </div>
+	 </pre>
+	 
+	 <h3>Function Header</h3>
+	 <p>In the first line of the above code.</p>
+	 <pre>
+	 <div id="box">
+	 int sum(int x, int y)
+	 </div>
+	 </pre>
+	 <p>It has three main parts</p>
+	 <ol>
+	     <li>The name of the function i.e. sum.</li>
+		 <li>The parameters of the function enclosed in paranthesis.</li>
+		 <li>Return value type i.e. int</li>
+	</ol>
+	
+	<h3>Function Body</h3>
+	<p>What ever is written with in { } in the above example is the body of the function.</p>
+	
+	<h3>Function Prototypes</h3>
+	<p>The prototype of a function provides the basic information about a function which tells the compiler that the function is used correctly or not. It contains the same information as the function header contains. The prototype of the function in the above example would be like</p>
+	
+	<pre>
+	<div id="box">
+	int sum (int x, int y);
+	</div>
+	</pre>
+	<p>The only difference between the header and the prototype is the semicolon ; there must the a semicolon at the end of the prototype.</p>
+	<br></br>
+	
+	<p>Let us now look at a simple C function given below:</p>
+	<pre>
+	<div id="box">
+	main( )
+{
+ message( ) ;
+ printf ( "\nCry, and you stop the monotony!" ) ;
+}
+message( )
+{
+ printf ( "\nSmile, and the world smiles with you..." ) ;
+} 
+</div></pre>
+<p>And here’s the output... </p>
+<pre>
+<div id="box">
+Smile, and the world smiles with you...
+Cry, and you stop the monotony! 
+</div>
+</pre>
+<p>Here, <strong>main( )</strong> itself is a function and through it we are calling the function <b>message( )</b>. What do we mean when we say that <b>main( )</b> ‘calls’ the function <b>message( )</b>? We mean that the control passes to the function <b>message( )</b>. The activity of <b>main( )</b> is temporarily suspended; it falls asleep while the <b>message( )</b> function wakes up and goes to work. When the <b>message( )</b> function runs out of statements to execute, the control returns to <b>main( )</b>, which comes to life again and begins executing its code at the exact point where it left off. Thus, <b>main( )</b> becomes the ‘calling’ function, whereas <b>message( )</b> becomes the ‘called’ <b>function</b>.</p>
+
+<h2>Why Use Functions</h2>
+<p>Why write separate functions at all? Why not squeeze the entire logic into one function, main( )? Two reasons: </p>
+<ol>
+    <li>Writing functions avoids rewriting the same code over and over.</li>
+	<li>We can divide a long C program into small blocks which can perform a certain task. A function is a self contained block of statements that perform a coherent task of same kind.</li>
+</ol>
+
+<h2>Passing Values between Functions</h2>
+<p>The functions that we have used so far haven’t been very flexible. We call them and they do what they are designed to do.<p>
+<p>The mechanism used to convey information to the function is the ‘argument’. You have unknowingly used the arguments in the <b>printf( )</b> and <b>scanf( )</b> functions; the format string and the list of variables used inside the parentheses in these functions are arguments. The arguments are sometimes also called ‘parameters’.</p>
+<p>Consider the following program. In this program, in <b>main( )</b> we receive the values of <b>a</b>, <b>b</b> and <b>c</b> through the keyboard and then output the sum of <b>a</b>,<b>b</b> and <b>c</b>. However, the calculation of sum is done in a different function called <b>calsum( )</b>. If sum is to be calculated in <b>calsum( )</b> and values of <b>a</b>, <b>b</b> and <b>c</b> are received in <b>main( )</b>, then we must pass on these values to <b>calsum( )</b>, and once <b>calsum( )</b> calculates the sum we must return it from <b>calsum( )</b> back to <b>main( )</b>. </p>
+
+<pre>
+<div id="box">
+/* Sending and receiving values between functions */
+main( )
+{
+ int a, b, c, sum ;
+ printf ( "\nEnter any three numbers " ) ;
+ scanf ( "%d %d %d", &a, &b, &c ) ;
+ sum = calsum ( a, b, c ) ; 
+  printf ( "\nSum = %d", sum ) ;
+}
+calsum ( x, y, z )
+int x, y, z ;
+{
+ int d ;
+ d = x + y + z ;
+ return ( d ) ;
+} 
+</div>
+</pre>
+<p>And here is the output... </p>
+<pre>
+<div id="box">
+Enter any three numbers 10 20 30
+Sum = 60 
+</div>
+</pre>
+
+<h2>Scope Rule of Functions </h2>
+<p>Look at the following program </p>
+<pre>
+<div id="box">
+main( )
+{
+ int i = 20 ;
+ display ( i ) ;
+}
+display ( int j )
+{
+ int k = 35 ;
+ printf ( "\n%d", j ) ;
+ printf ( "\n%d", k ) ;
+} 
+</div>
+</pre>
+
+<p>In this program is it necessary to pass the value of the variable <b>i</b> to the function display( )? Will it not become automatically available to the function <b>display( )</b>? No. Because by default the scope of a variable is local to the function in which it is defined. The presence of <b>i</b> is known only to the function <b>main( )</b> and not to any other function. Similarly, the variable <b>k</b> is local to the function <b>display( )</b> and hence it is not available to <b>main( )</b>. That is why to make the value of i</b> available to <b>display( )</b> we have to explicitly pass it to <b>display( )</b>. Likewise, if we want <b>k</b> to be available to <b>main( )</b> we will have to return it to <b>main( )</b> using the return statement. In general we can say that the scope of a variable is local to the function in which it is defined.</p>
+
+<h2>Calling Convention</h2>
+<p>Calling convention indicates the order in which arguments are passed to a function when a function call is encountered. There are two possibilities here:</p>
+<ol>
+      <li>Arguments might be passed from left to right. </li>
+       <li>Arguments might be passed from right to left</li>
+</ol>
+
+<h2>Advanced Features of Functions </h2>
+<p>With a sound basis of the preliminaries of C functions, let us now get into their intricacies. Following advanced topics would be considered here. </p>
+<ol>
+     <li>Return type of function</li>
+     <li>Calling functions by value or by reference </li>
+     <li>Recursion </li>
+</ol>	 
+
+<h2>Return Type of Function</h2>
+<p>A function may return a value. The return_type is the data type of the value the function returns. Some functions perform the desired operations without returning a value. In this case, the return_type is the keyword void.</p>
+
+<h2>Call by Value and Call by Reference</h2>
+<p>While calling a function, there are two ways that arguments can be passed to a function:</p>
+<p>(a)<b>Call by value:</b>This method copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.</p>
+<p>(b)<b>Call by reference:</b>This method copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.</p>
+
+<h2>A Introduction to Pointers</h2>
+<p>Which feature of C do beginners find most difficult to understand? The answer is easy: Pointers. Other languages have pointers but few use them so frequently as C does.</p>
+
+<h2>Pointer Notation</h2>
+<p>Consider the declaration,</p>
+<pre>
+<div id="box">
+int i=3;
+</div>
+</pre>
+<p>This declaration tells the C compiler to:</p>
+<ol>
+     <li>Reserve space in memory to hold the integer value.</li>
+      <li>Associate the name <b>i</b> with this memory location.</li>
+      <li>Store the value 3 at this location.</li>
+</ol>
+
+<p>We can print this address number through the following program:</p>
+<pre>
+<div id="box">
+#include<stdo.h>
+int main()
+{
+    int i=3;
+	printf("Address of i=%u\n",&i);
+	printf("Value of i=%d\n",i);
+	return 0;
+}
+</div>
+</pre>
+<p>output of the above program is:</p>
+<pre>
+<div id="box">
+Address of i=65524
+value of i=3
+</div>
+</pre>
+
+<p>Look at the first <b>printf()</b> statement carefully. '&' used in this statement is C's 'address of' operator. The expression <b>&i</b> returns the address of the variable <b>i</b>, which in this case happens to be 65524.Since 65524 represents an address, there is no question of a sign being associated with it.hence it is printed out using <b>%u</b>,which is a format specifier for printing an unsigned integer. We have been using the '&' operator all th etime in the <b>scanf()</b> statement.</p>
+<p>The other pointer operator available in C is '*', called 'value at address' operator.It gives the value stored at a particular address.The 'value at address' operator is called 'indirection' operator.</p> 
+
+<pre>
+<div id="box">
+int *j
+</div>
+</pre>
+<p>This declaration tells the compiler that <b>j</b> will be used to store teh address of an integer value.In other words,<b>j</b> points to an integer. Let us go by th meaning of *. It stands for 'value at address'.Thus,<b>int*j</b> would mean, the value at the address conatined in <b>j</b> is an <b>int</b>.</p>
+
+<p>Here is a program that demonstrates the relationships we have been discussing.</p>
+<pre>
+<div id="box">
+#include<stdio.h>
+int main()
+{
+      int i=3;
+	  int *j;
+	  j=&i;
+	  printf("Address of i=%u\n",&i);
+	  printf("Address of i=%u\n",j);
+	  printf("Address of j=%u\n",&j);
+	  printf("Value of j=%u\n",j);
+	  printf("Value of i=%d\n",i);
+	  printf("value of i=%d\n",*(&i));
+	  printf("value of i=%d\n",*j);
+	  return 0;
+}
+</div>
+</pre>
+<p>The output of the above program is :</p>
+
+<pre>
+<div id="box">
+Address of i=65524
+Address of i=65524
+Address of j=65522
+value of j=65524
+value of i=3
+value of i=3
+value of i=3
+</div>
+</pre>
+<p>Work through the above program carefully, taking help of the memory locations of <b>i</b> and <b>j</b> shown earlier.This program summarizes everything that we have discussed so far.If you don't understand the program's output, or the meanings of <b>&i</b>,<b>&j</b>,<b>*j</b> and <b>*(&i)</b>.</p>
+<p>We can say that Pointers are variables that contain addresses, and since addresses are always whole numbers, pointers would always contain whole numbers.</p>
+
+<h2>Back to Function Calls</h2>
+<p>Having had the first tryst with pointers, let us now get back to what we had originally set out to learn- the two types of function calls- call by value and call by reference.Arguments can be generally be passed to functions in one of the two ways:</p>
+<ol>  
+     <li>sending the values of the arguments</li>
+	 <li>sending the addresses of the arguments</li>
+</ol>
+
+<p>The following program illustrates the 'Call by value'.</p>
+<pre>
+<div id="box">
+#include<stdio.h>
+void swapv(int x,int y);
+int main()
+{
+    int a=10,b=20;
+	swapv(a,b);
+	printf("a=%d b=%d\n",a,b);
+	return 0;
+}
+void swapv(int x,int y)
+{
+    int t;
+	t=x;
+	x=y;
+	y=t;
+	printf("x=%d y=%d\n",x,y);
+}
+</div>
+</pre>
+<p>The output of the above program would be:</p>
+<pre>
+<div id="box">
+x=20 y=10
+a=10 b=20
+</div>
+</pre>
+<p>Note that values of <b>a</b> and <b>b</b> remains unchanged even after exchanging values of x and y.</p>
+<p>In the second method (call by reference), the address of actual arguments in calling function are copied into the formal arguments of the called function.The following program illustrates this fact.</p>
+<pre>
+<div id="box">
+#include<stdio.h>
+void swapr(int*,int*);
+int main()
+{
+    int a=10,b=20;
+	swapr(&a,&b);
+	printf("a=%d b=%d\n",a,b);
+	return 0;
+}
+void swapr(int *x,int *y)
+{
+    int t;
+	t=*x;
+	*x=*y;
+	*y=t;
+}
+</div>
+</pre>
+<p>The ouput of the above program would be:</p>
+<pre>
+<div id="box">
+a=20 b=10
+</div>
+</pre>
+<p>Note that this program manages to exchange the values of <b>a</b> and <b>b</b> using their addresses stored in <b>x</b> and <b>y</b>.</p>
+<h2>Recursion</h2>
+<p>Recursion is the process of repeating items in a self-similar way. Same applies in programming languages as well where if a programming allows you to call a function inside the same function that is called recursive call of the function as follows.</p>
+
+<pre>
+<div id="box">
+void recursion()
+{
+   recursion(); /* function calls itself */
+}
+
+int main()
+{
+   recursion();
+}
+</div>
+</pre>
+
+<p>The C programming language supports recursion, i.e., a function to call itself. But while using recursion, programmers need to be careful to define an exit condition from the function, otherwise it will go in infinite loop.</p>
+<p>Recursive function are very useful to solve many mathematical problems like to calculate factorial of a number, generating Fibonacci series, etc.</p>
+
+<h2>Fibonacci Series</h2>
+<p>Following is another example, which generates Fibonacci series for a given number using a recursive function:</p>
+
+<pre>
+<div id="box">
+#include <stdio.h>
+
+int fibonaci(int i)
+{
+   if(i == 0)
+   {
+      return 0;
+   }
+   if(i == 1)
+   {
+      return 1;
+   }
+   return fibonaci(i-1) + fibonaci(i-2);
+}
+
+int  main()
+{
+    int i;
+    for (i = 0; i < 10; i++)
+    {
+       printf("%d\t%n", fibonaci(i));
+    }
+    return 0;
+}
+</div>
+</pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre>
+<div id="box">
+0	1	1	2	3	5	8	13	21	34
+</div>
+</pre>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>
+
+	
+ 
+

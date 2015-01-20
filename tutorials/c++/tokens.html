@@ -1,0 +1,668 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>TOKENS</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html" id="active">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>TOKENS</h1>
+<p>The smallest individual unit in a program is knowns as <i>tokens.</i>C++ has the following tokens:<br/>
+
+<ul>
+<li><a  href="#key">KEYWORDS</a></li>
+ <li><a href="#string" >STRINGS</a></li>
+	
+	<li><a href="#const" >CONSTANTS</a></li>
+<li><a href="#identi" >IDENTIFIERS</a></li>
+      
+ 	
+</ul>	
+</p>
+<h2><a name="key"><u>KEYWORDS</u></a></h2>
+<p><br/>
+The keywords implement specific C++ language features.There are 32 keywords in c.But c++ has additional keywords as well.
+The standard reserved
+keywords are:<br/><i>
+asm, auto, bool, break, case, catch, char, class, const, const_cast, continue, default, delete,
+do, double, dynamic_cast, else, enum, explicit, export, extern, false, float, for, friend, goto,
+if, inline, int, long, mutable, namespace, new, operator, private, protected, public, register,
+reinterpret_cast, return, short, signed, sizeof, static, static_cast, struct, switch, template,
+this, throw, true, try, typedef, typeid, typename,
+union, unsigned, using, virtual, void,volatile, wchar_t, while.
+</i></p>
+<h2><a name="string"><u>STRINGS</u></a></h2>
+<p><br/>
+Variables that can store non-numerical values that
+are longer than one single character are known as strings. 
+</p>
+<h2><a name="const"><u>CONSTANTS</u></a></h2>
+<p>
+Constants are expressions with a fixed value.
+<h3>Literals</h3>
+Literals are used to express particular values with
+in the source code of a program. We have already us
+ed these
+previously to give concrete values to variables or
+to express messages we wanted our programs to print
+out, for
+example, when we wrote:
+a = 5;<br/>
+the
+5
+in this piece of code was a literal constant.
+Literal constants can be divided in Integer Numeral
+s, Floating-Point Numerals, Characters, Strings and
+Boolean
+Values.
+</p>
+<h3>FLOATING POINT NUMBERS</h3>
+<p>
+
+They express numbers with decimals and/or exponents
+. They can include either a decimal point, 
+character
+(that expresses "by ten at the Xth height", where X
+is an integer value that follows the
+
+character), or both a
+decimal point and 
+character: 
+3.14159
+// 3.14159<br/>
+6.02e23
+// 6.02 x 10^23<br/>
+1.6e.19
+// 1.6 x 10^.19<br/>
+3.0
+// 3.0 
+<br/>
+These are four valid numbers with decimals expresse
+d in C++. The first number is PI, the second one is
+the
+number of Avogadro, the third is the electric charge of an electron (an extremely small number) -all of them
+approximated- and the last one is the number three
+expressed as a floating-point numeric literal.<br/> 
+DOUBLE is used for storing larger value of floating point nos.It has larger range.
+</p>
+<h3>
+Integer Numerals</h3>
+<p>
+1776 &
+707 &
+.273
+They are numerical constants that identify integer
+decimal values. Notice that to express a numerical constant we
+do not have to write quotes (") nor any special character. There is no doubt that
+it is a constant: whenever we
+write
+1776
+in a program, we will be referring to the value 17
+76.
+In addition to decimal numbers (those that all of u
+s are used to use every day) C++ allows the use as
+literal
+constants of octal numbers (base 8) and hexadecimal
+numbers (base 16). 
+</p>
+<h3>CHARACTERS</h3>
+<p>
+There also exist non-numerical constants, like:
+'z',
+'p',
+"Hello world",
+"How do you do?",
+The first two expressions represent single character constants, and the following two represent string
+literals
+composed of several characters. Notice that to represent a single character we enclose it between single quotes (')and to express a string (which generally consists of more than one character) we enclose it between double quotes
+(").
+</p> 
+<h2><a name="identi"><u>IDENTIFIERS</u></a></h2>
+<p>
+A valid identifier is a sequence of one or more letters, digits or underscore characters(_). Neither spaces nor
+punctuation marks or symbols can be part of an identifier. Only letters, digits and single underscore
+characters are
+valid. In addition, variable identifiers always have to begin with a letter. They can also begin with
+an underline
+character (_), but in some cases these may be reserved for com
+piler specific keywords or external identifiers, as
+well as identifiers containing two successive under
+score characters anywhere. In no case they can begin with a
+digit. 
+</p>
+<h2><u>BASIC DATA TYPES</u></h2>
+<p>
+When programming, we store the variables in our computer's memory, but the computer has to know what kind of
+data we want to store in them, since it is not going to occupy the same amount of memory to store a simple
+number than to store a single letter or a large number, and they are not going to be interpreted the same way.
+The memory in our computers is organized in bytes.
+A byte is the minimum amount of memory that we can
+manage in C++. A byte can store a relatively small
+amount of data: one single character or a small integer
+(generally an integer between 0 and 255). In addition, the computer can manipulate more complex data types that
+come from grouping several bytes, such as long numbers or non-integer numbers.
+ <table border="1" style="width:100%">
+  <tr>
+    <td><u><b>TYPE</u></b></td>
+    <td><b><u>BYTES</u></b></td>
+    <td><b><u>RANGE</u></b></td>
+  </tr>
+  <tr>
+    <td>char</td>
+    <td>1</td>
+    <td>-128 to 127</td>
+  </tr>
+<tr>
+    <td>unsigned char</td>
+    <td>1</td>
+    <td>0 to 255</td>
+  </tr>
+<tr>
+    <td>signed char</td>
+    <td>1</td>
+    <td>-128 to 127</td>
+  </tr>
+<tr>
+    <td>int</td>
+    <td>2</td>
+    <td>-32768 to 32767</td>
+  </tr>
+<tr>
+    <td>unsigned int</td>
+    <td>2</td>
+    <td>0 to 65535</td>
+  </tr>
+<tr>
+    <td>signed int</td>
+    <td>2</td>
+    <td>-32768 to 32767</td>
+  </tr>
+<tr>
+    <td>short int</td>
+    <td>2</td>
+    <td>-32768 to 32767</td>
+  </tr>
+<tr>
+    <td>unsigned short int</td>
+    <td>2</td>
+    <td>0  to 65535</td>
+  </tr>
+<tr>
+    <td>long int</td>
+    <td>4</td>
+    <td>-2147483648 to 2147483647 </td>
+  </tr>
+<tr>
+    <td>float</td>
+    <td>4</td>
+    <td>3.4e +/- 38 (~7 digits) </td>
+  </tr>
+<tr>
+    <td>double</td>
+    <td>8</td>
+    <td>+/-1.7e +/- 308 (~15 digits) </td>
+  </tr>
+
+
+
+
+
+</table> 
+
+</p>
+
+<h2>EXAMPLE</h2>
+<div id="box">
+<pre>
+// operating with variables
+ #include < iostream >
+ using namespace std;
+ int main ()
+ {
+    // declaring variables:
+    int a, b;
+    int result;
+    // process:
+    a = 5;
+    b = 2;
+    a = a + 1;
+    result = a . b;
+    // print out the result:
+    cout << result;
+    // terminate the program:
+   return 0;
+ }</div>
+</pre>
+</p>
+<h2><u>DERIVED DATA TYPES</u></h2>
+<p>
+<h3>ARRAY</h3>
+<p>
+An array is a series of elements of the same type placed in contiguous memory locations that can be individually
+referenced by adding an index to a unique identifier.
+That means that, for example, we can store 5 values of type int in an array without having to declare 5 different
+variables, each one with a different identifier. Instead of that, using an array we can store 5 different values of the
+same type, int for example, with a unique identifier. 
+<br/>
+A typical declaration for an array in C++ is:<pre>
+type name [elements];</pre>
+where type is a valid type (like int, float...), name is a valid identifier and the elements field (which is always
+enclosed in square brackets []), specifies how many of these elements the array has to contain.
+</p>
+<h3>POINTERS</h3>
+<p>
+We have already seen how variables are seen as memory cells that can be accessed using their identifiers. This
+way we did not have to care about the physical location of our data within memory, we simply used its identifier
+whenever we wanted to refer to our variable.
+The memory of your computer can be imagined as a succession of memory cells, each one of the minimal size that
+computers manage (one byte). These single-byte memory cells are numbered in a consecutive way, so as, within
+any block of memory, every cell has the same number as the previous one plus one.
+This way, each cell can be easily located in the memory because it has a unique address and all the memory cells
+follow a successive pattern. For example, if we are looking for cell 1776 we know that it is going to be right
+between cells 1775 and 1777, exactly one thousand cells after 776 and exactly one thousand cells before cell 2776.
+We generally use Reference operator (&) and Dereference operator (*).
+</p>
+<h3>FUNCTIONS</h3>
+<p>
+Using functions we can structure our programs in a more modular way, accessing all the potential that structured
+programming can offer to us in C++.
+A function is a group of statements that is executed when it is called from some point of the program. The
+following is its format:
+<pre>type name ( parameter1, parameter2, ...) { statements }</pre>
+where:<pre>
+1. type is the data type specifier of the data returned by the function.
+2. name is the identifier by which it will be possible to call the function.
+3. parameters (as many as needed): Each parameter consists of a data type specifier followed by an
+   identifier, like any regular variable declaration (for example: int x) and which acts within the function as
+   a regular local variable. They allow to pass arguments to the function when it is called. The different
+   parameters are separated by commas.
+4. statements is the function's body. It is a block of statements surrounded by braces { }.
+</pre>
+Here you have the first function example:
+</p>
+<div id="box"><pre>
+  // function example
+  #include < iostream >
+  using namespace std;
+  
+  int addition (int a, int b)
+  {
+  int r;
+  r=a+b;
+  return (r);
+  }
+  int main ()
+  {
+   int z;
+   z = addition (5,3);
+   cout << "The result is " << z;  
+   return 0;
+  }
+<br/>
+OUTPUT:
+The result is 8</div>
+</pre></p>
+
+<h2><u>USER DEFINED DATA TYPES</u></h2>
+<h3><i>STRUCTURES</i></h3>
+<p>
+A data structure is a group of data elements grouped together under one name. These data elements, known as
+members, can have different types and different lengths. Data structures are declared in C++ using the following
+syntax:
+<pre>
+<div id="src">
+   struct structure_name {
+   member_type1 member_name1;
+   member_type2 member_name2;
+   member_type3 member_name3;
+   .
+   .
+   } object_names;
+</div></pre><br/>
+where structure_name is a name for the structure type, object_name can be a set of valid identifiers for objects
+that have the type of this structure. Within braces { } there is a list with the data members, each one is specified
+with a type and a valid identifier as its name.
+</p>
+<h3><i>UNIONS</i></h3>
+<p>
+Unions allow one same portion of memory to be accessed as different data types, since all of them are in fact the
+same location in memory. Its declaration and use is similar to the one of structures but its functionality is totally
+different:<pre>
+<div id="box">
+  union union_name {
+  member_type1 member_name1;
+  member_type2 member_name2;
+  member_type3 member_name3;
+  .
+  .
+  } object_names;</div>
+</pre><br/>
+All the elements of the union declaration occupy the same physical space in memory. Its size is the one of the
+greatest element of the declaration.
+</p>
+<h3><i>ENUMERATIONS</i></h3>
+<p>
+Enumerations create new data types to contain something different that is not limited to the values fundamental
+data types may take. Its form is the following:
+<pre><div id="box">
+  enum enumeration_name {
+  value1,
+  value2,
+  value3,
+  .
+  .
+  } object_names;</div></pre>
+For example, we could create a new type of variable called color to store colors with the following declaration:
+ <pre>enum colors_t {black, blue, green, cyan, red, purple, yellow, white};</pre>
+</p>
+<h3><i>CLASSES</i></h3>
+<p>
+A class is an expanded concept of a data structure: instead of holding only data, it can hold both data and
+functions.
+An object is an instantiation of a class. In terms of variables, a class would be the type, and an object would be the
+variable.
+Classes are generally declared using the keyword class, with the following format:
+<pre><div id="box">
+  class class_name {
+  access_specifier_1:
+  member1;
+  access_specifier_2:
+  member2;
+  ...
+  } object_names;</div></pre><br/>
+Where class_name is a valid identifier for the class, object_names is an optional list of names for objects of this
+class. The body of the declaration can contain members, that can be either data or function declarations, and
+optionally access specifiers.
+</p>
+<h2><u>STORAGE CLASSES</u></h2>
+<p>
+A storage class defines the scope (visibility) and life-time of variables and/or functions within a C++ Program. These specifiers precede the type that they modify. There are following storage classes, which can be used in a C++ Program
+<ol>
+  <li>auto</li>
+
+  <li>register</li>
+
+  <li>static</li>
+
+    <li>extern</li>
+
+   
+</ol>
+<br/>
+<i>The auto Storage Class</i>
+<br/>
+The auto storage class is the default storage class for all local variables.
+<pre>
+ {
+   int mount;
+   auto int month;
+ }
+</pre><br/>
+The example above defines two variables with the same storage class, auto can only be used within functions, i.e., local variables.
+<br/><br/><i>The register Storage Class</i>
+
+The register storage class is used to define local variables that should be stored in a register instead of RAM. This means that the variable has a maximum size equal to the register size (usually one word) and can't have the unary '&' operator applied to it (as it does not have a memory location).
+<pre><div id="box">
+ {
+   register int  miles;
+ }</div>
+</pre>
+<br/>The register should only be used for variables that require quick access such as counters. It should also be noted that defining 'register' does not mean that the variable will be stored in a register. It means that it MIGHT be stored in a register depending on hardware and implementation restrictions.
+<br/><br/><i>The static Storage Class</i>
+<br/>
+The static storage class instructs the compiler to keep a local variable in existence during the life-time of the program instead of creating and destroying it each time it comes into and goes out of scope. Therefore, making local variables static allows them to maintain their values between function calls.
+
+<br/>The static modifier may also be applied to global variables. When this is done, it causes that variable's scope to be restricted to the file in which it is declared.
+
+In C++, when static is used on a class data member, it causes only one copy of that member to be shared by all objects of its class.
+<br/><br/><i>The extern Storage Class</i>
+
+The extern storage class is used to give a reference of a global variable that is visible to ALL the program files. When you use 'extern' the variable cannot be initialized as all it does is point the variable name at a storage location that has been previously defined.
+
+<br/>When you have multiple files and you define a global variable or function, which will be used in other files also, then extern will be used in another file to give reference of defined variable or function. Just for understanding extern is used to declare a global variable or function in another file.
+
+
+</p>
+<h2><u>CONTROL STRUCTURES</u></h2>
+<p>
+A program is usually not limited to a linear sequence of instructions. During its process it may bifurcate, repeat
+code or take decisions. For that purpose, C++ provides control structures that serve to specify what has to be done
+by our program, when and under which circumstances.
+With the introduction of control structures we are going to have to introduce a new concept: the compound-
+statement or block. A block is a group of statements which are separated by semicolons (;) like all C++
+statements, but grouped together in a block enclosed in braces: { }:<br/>
+{ statement1; statement2; statement3; }<br/>
+Most of the control structures that we will see in this section require a generic statement as part of its syntax. A
+statement can be either a simple statement (a simple instruction ending with a semicolon) or a compound
+statement (several instructions grouped in a block), like the one just described. In the case that we want the
+statement to be a simple statement, we do not need to enclose it in braces ({}). But in the case that we want the
+statement to be a compound statement it must be enclosed between braces ({}), forming a block.
+Conditional structure: if and else
+The if keyword is used to execute a statement or block only if a condition is fulfilled. Its form is:
+<br/>if (condition) statement
+Where condition is the expression that is being evaluated. If this condition is true, statement is executed. If it is
+false, statement is ignored (not executed) and the program continues right after this conditional structure.
+For example, the following code fragment prints x is 100 only if the value stored in the x variable is indeed 100:
+<br/>
+if (x == 100)
+cout << "x is 100";
+If we want more than a single statement to be executed in case that the condition is true we can specify a block
+using braces { }:<pre><div id="box">
+ if (x == 100)
+ {
+ cout << "x is ";
+ cout << x;</div>
+ }</pre>
+We can additionally specify what we want to happen if the condition is not fulfilled by using the keyword else. Its
+form used in conjunction with if is:<br/>
+<pre>if (condition) statement1 else statement2</pre>
+</p>
+<h2><U>ITERATION STATEMENTS</u></h2>
+<p>
+Loops have as purpose to repeat a statement a certain number of times or while a condition is fulfilled.
+<h2>The while loop</h2>
+Its format is:<br/>
+while (expression) statement
+and its functionality is simply to repeat statement while the condition set in expression is true.
+For example, we are going to make a program to countdown using a while-loop:
+// custom countdown using while
+<pre><div id="box">
+ #include < iostream >
+ using namespace std;
+ int main ()
+ {
+ int n;
+ cout << "Enter the starting number > ";
+ cin >> n;
+ while (n>0) {
+ cout << n << ", ";
+ --n;
+ }
+ cout << "FIRE!\n";
+ return 0;
+ }
+
+OUTPUT:
+Enter the starting number > 8
+8, 7, 6, 5, 4, 3, 2, 1, FIRE!</div>
+</pre>
+When the program starts the user is prompted to insert a starting number for the countdown. Then the while loop
+begins, if the value entered by the user fulfills the condition n>0 (that n is greater than zero) the block that follows
+the condition will be executed and repeated while the condition (n>0) remains being true.
+The whole process of the previous program can be interpreted according to the following script (beginning in
+main):<br/>
+1. User assigns a value to n<br/>
+2. The while condition is checked (n>0). At this point there are two posibilities:<br/>
+   * condition is true: statement is executed (to step 3)<br/>
+   * condition is false: ignore statement and continue after it (to step 5)<br/>
+3. Execute statement:<br/>
+   cout << n << ", ";<br/>
+   --n;<br/>
+   (prints the value of n on the screen and decreases n by 1)<br/>
+4. End of block. Return automatically to step 2<br/>
+5. Continue the program right after the block: print FIRE! and end program.<br/>
+
+When creating a while-loop, we must always consider that it has to end at some point, therefore we must provide
+within the block some method to force the condition to become false at some point, otherwise the loop will
+continue looping forever. In this case we have included --n; that decreases the value of the variable that is being
+evaluated in the condition (n) by one - this will eventually make the condition (n>0) to become false after a certain
+number of loop iterations: to be more specific, when n becomes 0, that is where our while-loop and our countdown
+end.
+Of course this is such a simple action for our computer that the whole countdown is performed instantly without
+any practical delay between numbers.
+</p>
+<h2>The do-while loop</h2>
+<p>
+Its format is:
+<br/>do statement while (condition);
+Its functionality is exactly the same as the while loop, except that condition in the do-while loop is evaluated after
+the execution of statement instead of before, granting at least one execution of statement even if condition is
+never fulfilled. For example, the following example program echoes any number you enter until you enter 0.
+<pre><div id="box">
+ // number echoer
+ #include < iostream >
+ using namespace std;
+ int main ()
+ {
+ unsigned long n;
+ do {
+ cout << "Enter number (0 to end): ";
+ cin >> n;
+ cout << "You entered: " << n << "\n";
+ } while (n != 0);
+ return 0;
+ }
+
+OUTPUT:
+Enter number
+You entered:
+Enter number
+You entered:
+Enter number
+You entered:
+(0 to end): 12345
+12345
+(0 to end): 160277
+160277
+(0 to end): 0
+0</div>
+</pre>
+The do-while loop is usually used when the condition that has to determine the end of the loop is determined within
+the loop statement itself, like in the previous case, where the user input within the block is what is used to
+determine if the loop has to end. In fact if you never enter the value 0 in the previous example you can be
+prompted for more numbers forever.		
+</p>
+<h2>The for loop</h2>
+<p>
+The for loop
+Its format is:<br/>
+for (initialization; condition; increase) statement;
+and its main function is to repeat statement while condition remains true, like the while loop. But in addition, the
+for loop provides specific locations to contain an initialization statement and an increase statement. So this
+loop is specially designed to perform a repetitive action with a counter which is initialized and increased on each
+iteration.
+It works in the following way:<br/>
+1. initialization is executed. Generally it is an initial value setting for a counter variable. This is executed
+only once.<br/>
+2. condition is checked. If it is true the loop continues, otherwise the loop ends and statement is skipped
+(not executed).<br/>
+3. statement is executed. As usual, it can be either a single statement or a block enclosed in braces { }.<br/>
+4. finally, whatever is specified in the increase field is executed and the loop gets back to step 2.<br/>
+
+Here is an example of countdown using a for loop:<pre>
+ <div id="box">// countdown using a for loop
+ #include < iostream >
+ using namespace std;
+ int main ()
+ {
+ for (int n=10; n>0; n--) {
+ cout << n << ", ";
+ }
+ cout << "FIRE!\n";
+ return 0;
+ }
+ OUTPUT:
+ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, FIRE!</div></pre>
+ The initialization and increase fields are optional. They can remain empty, but in all cases the semicolon signs
+between them must be written.
+</p>
+<h2><u>SWITCH STATEMENT</u></h2>
+<p>
+The syntax of the switch statement is a bit peculiar. Its objective is to check several possible constant values for an
+expression. Something similar to what we did at the beginning of this section with the concatenation of several if
+and else if instructions. Its form is the following:<pre><div id="box">
+switch (expression)
+{
+case constant1:
+group of statements 1;
+break;
+case constant2:
+group of statements 2;
+break;
+.
+.
+.
+default:
+default group of statements
+}</div></pre>
+It works in the following way: switch evaluates expression and checks if it is equivalent to constant1, if it is, it
+executes group of statements 1 until it finds the break statement. When it finds this break statement the
+program jumps to the end of the switch selective structure.
+</p>
+<h2><u>JUMP STATEMENTS</u></h2>
+<h3>The break statement</h3>
+<p>
+
+Using break we can leave a loop even if the condition for its end is not fulfilled. It can be used to end an infinite
+loop, or to force it to end before its natural end.
+</p>
+<h3>The continue statement</h3>
+<p>
+The continue statement causes the program to skip the rest of the loop in the current iteration as if the end of the
+statement block had been reached, causing it to jump to the start of the following iteration.</p>
+<h3>The goto statement</h3>
+<p>
+goto allows to make an absolute jump to another point in the program. You should use this feature with caution
+since its execution causes an unconditional jump ignoring any type of nesting limitations.
+The destination point is identified by a label, which is then used as an argument for the goto statement. A label is
+made of a valid identifier followed by a colon (:).</p>
+<h3>The exit function</h3>
+<p>
+exit is a function defined in the cstdlib library.
+The purpose of exit is to terminate the current program with a specific exit code. Its prototype is:
+<br/>void exit (int exitcode);<br/>
+The exitcode is used by some operating systems and may be used by calling programs. By convention, an exit
+code of 0 means that the program finished normally and any other value means that some error or unexpected
+results happened.
+</p>
+<br/>
+<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

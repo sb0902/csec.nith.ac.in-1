@@ -1,0 +1,136 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>Looping</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html" id="active">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+<div class="main">
+<h1>Loop</h1>
+<p>
+    <a href="#while">while</a></br>
+    <a href="#for">for</a></br>
+    <a href="#do-while">do-while</a></br>
+</p>
+	
+<h2 id="while">The <i><b>while</b></i> Loop</h2>
+<p>Often used in the case when you want to do something a fixed
+ number of times.</br>
+ The general form of <b>while</b> is as shown below:</br>
+ <pre><div id="box">
+      initialise loop counter;
+	  while(test loop counter using a condition)
+	  {
+	    do this;
+		and this;
+		increment loop counter;
+	 }
+	 </div></pre>
+	 
+Note the following points about <b>while...</b></br>
+(a)The statement within the <b>while</b> loop would keep on getting executed
+till the condition being tested remains true.When the condition becomes false,the 
+control passes to the first statement that follows the body of the <b>while</b> loop.</br>
+(b)The condition being tested may use relational or logical operators.</br>
+(c)The statement within the loop may be a single line or block of the statements.In 
+first case braces are optional.</br>
+(d)Almost always, the while must test a condition that will eventually become false, 
+otherwise the loop would be executed forever i.e. infinite loop.</br>
+(e)We can increment as well as decrement loop counter.Increment and decrement could be
+any value not necessarily 1.</br>
+
+<h2 id="for">The <i><b>for</b></i> Loop</h2>
+It is probably the most popular looping instruction.It allows us to specify three
+things about a loop in a single line:-</br>
+(a)Setting a loop counter to an initial value.</br>
+(b)Testing the loop counter to determine whether its value has reached the number of repetitions
+desired.</br>
+(c)Increasing the value of loop counter each time the program segment within the loop has been
+executed.</br>
+ 
+ The general form of <b>for</b> statement is as under:</br>
+ <pre><div id="box">
+     for(initialise counter;test counter;increment counter)
+	 {
+	    do this;
+		and this;
+		and this;
+	}
+	</div></pre>
+
+	
+<b>NOTE</b>:1. The initialization, testing and incrementation part of a <b>for</b> loop can be replaced 
+by any valid expression.</br>
+2.The way the <b>if</b> statements can be nested, similarly <b>while</b> and <b>for</b> can also be nested.</br>
+For example:</br>
+   <pre><div id="box">
+       for(i=10;i>0;i--)
+	     printf("%d",i);
+	  for(i<4;j=5;j=0)
+	     printf("%d",i);
+	  for(i=1;i<=10; printf("%d",i++))
+	  
+	  for(scanf("%d",&i);i<=10;i++)
+	     printf("%d",i);
+    </div></pre>
+	
+<h3>Multiple Initialisations in the <b><i>for</i></b> Loop</h3>
+The initialisation expressions in the <b>for</b> loop can contain more than one statement separated by a comma.</br>
+For example:</br>
+<pre><div id="box">
+ for(i=1,j=2;j<=10;j++)
+ </div></pre>
+ Multiple statements can also be used in the incrementation expression of <b>for</b> loop i.e. you can increment
+ (or decrement) two or more variables at the same time.However, only one statement is allowed in the test expression.
+ This expression may contain several conditions linked together using logical operators.</br>
+ 
+ 
+ <h2 id="do-while">The <i><b>do-while</b></i> Loop</h2>
+ <p>The general form of this do-while loop is:</br>
+ <pre><div id="box">
+   do
+   { 
+      this;
+	  and this;
+	  and this;
+	  and this;
+	}while(this condition is true);
+	</div></pre>
+	
+There is major difference between the working of <b>while</b> and <b>do-while</b> loops.This difference is the place 
+where the condition is tested.The <b>while</b> tests the condition before executing any of the statements whereas <b>do-while</b>
+tests the condition after having executed the statements within the loop.</br>
+This means that <b>do-while</b> would execute its statements at least once, even if the condition.fails for the first time.The <b>while</b>,
+on the other hand will not execute its statements if the condition fails for the first time.</br></p>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html> 
+ 
+ 
+	

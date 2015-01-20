@@ -1,0 +1,203 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>constructor and destructor</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html" id="active">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>CONSTRUCTORS AND DESTRUCTORS</h1>
+<p>We have used,so far, member functions to provide initial values to private members.These funtions cannot be used to initialize the member variables at the time of creation of the objects.C++ provides a special member function called <i><a href="#constructor">constructor</a></i> which enables an object to initialize itself when it is created and another special function <i><a href="#destructor">destructor</a></i> that destroys the object when it is no lonegr required.</p>
+<h2><a name="constructor">CONSTRUCTORS</a></h2>
+<p>A <i>constructor</i> is a special member function which is used to initialize the objects of its class. It is special because its name is same as the name of the class.<br/>
+The characteristics of a constructor are:
+<ul>
+	<li>The should be declared in public section.</li>
+	<li>They are invoked automatically when objects are created.</li>
+	<li>They do not have return types,not even void and therefore they cannot return values.</li>
+	<li>They cannot be inherited.</li>
+	<li>They can have default arguements.</li>
+</ul>
+</p>
+<pre>
+	<div id="box">
+		class city
+		{
+			 int m,n;
+			public:
+			  city(void);	 //<i>constructor declared</i>
+			   .....
+			   .....
+		};
+		city :: city(void)	//<i>constructor defined</i>
+		{
+			m=0; n=0;
+		}</div>
+</pre>
+<h2>TYPES OF CONSTRUCTORS</h2>
+<ol>
+ 	<li><a href="#default"  >Default Constructor</a></li>
+	<li><a href="#parameter" >Parameterised Constructor</a></li>
+	<li><a href="#copy" >Copy Constructor</a></li>
+</ol>
+
+<h3><a name="default">1. DEFAULT CONSTRUCTOR</a></h3>
+<p>A cnstructor that accepts no arguements is called a <i>default constructor.</i> The default constructor for <b>class city is city::city().</b> If no such constructor is defined, then compiler itself supplies a default constructor.</p>
+<h3><a name="parameter">2. PARAMETERISED CONSTRUCTOR</a></h3>
+<p>The constructor that takes arguements is called a <i>parameterised constructor.</i>C++ permits us to initialize the various members of different objects with different objects by passing arguements to the constructor.</p>
+<pre>
+	<div id="box">
+		class city
+		{
+			int m,n;
+			public:
+			  city(int x,int y);
+		}
+		city :: city(int x,int y)
+		{
+			m=x; n=y;
+		} 
+	</div>
+</pre>
+<p>The object declaration statement:  <b>city city1;</b> may not work. We must pass initial values to the constructor function.This can be done in two ways:
+	<ul>
+		<li>By calling the constructor explicitly. <b>city city1 = city(10,20);</b></li>
+		<li>By calling the constructor implicitly.  <b>city city1(10,20);</b></li>
+	</ul>
+</p>
+<h4>&nbsp;CONSTRUCTOR WITH DEFAULT ARGUEMENTS</h4>
+<p align="justify">&nbsp;It is possible to define a construcor with default arguements.<br/> <b>city(int x,int y=4);</b><br/> The default value of arguement <b>y=4;</b><br/>
+It is important to distinguish between the default constructor <b>city::city(); </b> and the constructor with default arguemnt <b>city::city(int x=0);</b>
+Statement such as: <b>city city1;</b> will create an ambiguity.</p>
+<h3><a name="copy">3. COPY CONSTRUCTOR</a> </h3>
+<p>A <i>copy constructor</i> is used to declare and initialize an oject from another object.For example, the statement: <b>city obj2(obj1); or  city obj2 = obj1;</b> would define the object obj2 and initiaze it with the values of obj1.</p>
+<p>Copy constructor takes a reference to an object of the same class as itself as an arguement. Consider the following code:</p>
+<pre>
+	<div id="box">
+		#include< iostream>
+		using namespace std;
+		class code
+		{
+			int id;
+			public:
+			code() {  }
+			code(int a)
+			{
+				id=a;
+			}
+			code(code &x)
+			{
+				id=x.id;
+			}
+			void display()
+			{
+				cout<< id;
+			}
+		};
+
+		int main()
+		{
+			code A(100);				//<i>parameterised constructor called</i>
+			code B(A);				//<i>copy constructor called</i>
+			code C=A;				//<i>copy constructor called</i>
+			cout<<"\n id of A="; A.display();
+			cout<<"\n id of B="; B.display();
+			cout<<"\n id of C="; C.display();
+		}
+	</div>		
+</pre>
+<pre>   Output of the program is: 
+	id of A=100
+	id of B=100
+	id of C=100
+
+	</pre>
+<p id="box"> A reference variable has been used as an arguement to the copy constructor. We cannot pass the arguement by value to the copy constructor.</p>
+<br/> <hr/>
+
+					
+<h2><a name="destructor">DESTRUCTORS</a></h2>
+<p> A <i>destructor</i> as the name implies, is used to destroy the objects that have been created by a constructor. A destructor is a member function whose name is same as the class name but preceded by a tilde(~). For example: <br/> <b><pre>		~city() { }</pre></b><br/> The characteristics of a destructor are:  
+<ul>
+	<li>It never takes an arguement nor does it return any value.</li>
+	<li>It will be invoked implicitly by compiler upon exit from the program or block or function.</li>
+</ul>
+It is good practice to use destructors in a program since it releases memory for future use. Consider the following code to understand the calling of constructors and destructors.</p>	
+<pre>
+	<div id="box">
+		#include< iostream>
+		using namesapce std
+		int count=0;
+		class test
+		{
+			public:
+			test()
+			{
+				count++;
+				cout<<"\n constructor of object "<< count<<"called";
+			}
+			~test()
+			{
+				cout<<"\n destructor of object "<< count<<"called";
+				count--;
+			}
+		};
+
+		int main()
+		{
+			cout<<"Inside main..";
+			test T1;
+			{
+				//Block 1
+				cout<<"\nInside Block 1";
+				test T2,T3;
+				cout<<"\nleaving block 1";
+			}
+			cout<<"\nLeaving main";
+		}
+		</div>
+</pre>
+<pre>
+	Output of the program is:
+	   Inside main..
+	   constructor of object 1 called
+	   Inside Block 1
+	   constructor of object 2 called
+	   constructor of object 3 called
+	   leaving block 1
+	   destructor of object 3 called
+	   destructor of object 2 called
+	   Leaving main
+	   destructor of object 1 called
+</pre>
+<br/>
+<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+
+</body>
+</html>

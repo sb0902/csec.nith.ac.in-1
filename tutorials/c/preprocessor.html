@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> preprocessor</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html" id="active">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+
+<div class="main">
+
+
+<h1>The C Preprocessor</h1>
+<br>
+<p>It is a program that processes our source program before it is passed to the compiler. The preprocessor commands are known as directives and begin with a pound symbol(#). In the coming sections, we will learn about the following:
+<ul><li><a href="#macExp">Macro Expansion</a></li>
+	<li><a href="#fileInc">File Inclusion</a></li>
+	<li><a href="#condCompile">Conditional Compilation</a></li>
+	<li><a href="#miscDirective">Miscellaneous Directives</a></li>
+</ul></p>
+
+<br>
+<h3><a id="macExp">Macro Expansion</a></h3>
+<br>
+<p>A macro is a fragment of code which has been given a name. Whenever the name is used, it is replaced by the constant contents of the macro. It is made to make the program more readable. For example :
+<pre><div id="box">#define UPPER 10
+main( )
+{
+	int i ;
+	for ( i = 1 ; i <= UPPER ; i++ )
+		printf ( "\n%d", i ) ;
+}</div></pre>
+In this example, instead of writing 10 in the <i>for</i> loop, we use the <b>macro</b> UPPER, which is replaced by its defined value during preprocessing.</p>
+<br>
+
+<h3><a id="fileInc">File Inclusion</a></h3>
+<br>
+<p>The file inclusion directive causes one file to be included in another, i.e. it causes the entire contents of filename to be inserted into the source code at that point in the program. The syntax of the command is :
+<div id="box"><xmp>#include "filename"
+#include <filename></xmp></div>
+Following are the examples:
+<div id="box"><xmp>#include "myFile.c"
+#include <myFile.c></xmp></div>
+The first statement looks for the file in the current directory as well as the specified list of directories as mentioned in the include search path that might have been set up.<br>
+The next statement looks for the file in the specified list of directories only.</p>
+<br>
+
+<h3><a id="condCompile">Conditional Compilation</a></h3>
+<br>
+<p>We can make the compiler skip over a part of a source code. This can be done by inserting the preprocessing commands like <b>#ifdef</b> and <b>#endif</b> that have the general form:
+<pre><div id="box">#ifdef macroname
+	statement 1 ;
+	statement 2 ;
+	statement 3 ;
+#endif</div></pre>
+If macroname has been defined, the block of code will be processed as usual, otherwise not.<br>
+It can be used to "comment out" obsolete lines of code.</p>
+
+<br>
+<h3><a id="miscDirective">Miscellaneous Directives</a></h3>
+<br>
+<p>In this section, we will read about two more directives, which are not used very frequently:
+<ul><li>#undef</li>
+	<li>#pragma</li>
+</ul></p>
+
+<br>
+<h4>#undef directive</h4>
+<p>When we need to cause a defined name to be 'undefined', we use this directive. The syntax is:
+<div id="box">#undef macro template</div>
+For example
+<div id="box">#undef PENTIUM</div>
+This will cause the definition of PENTIUM to be removed from the system.</p>
+
+<br>
+<h4>#pragma directive</h4>
+<p>The <i>pragma</i> directive specifies machine- or operating-specific compiler features. There are many types of pragma directive and they vary from one compiler to the other. If a compiler does not recognize a particular pragma, then it simply ignores that pragma statement without showing any error or warning message and executes the whole program as if the pragma statement was never present.<br>
+Some available <i>pragma</i> directives are listed below :
+<ul><li>#pragma startup</li>
+	<li>#pragma exit</li>
+	<li>#pragma warn</li>
+</ul></p>
+
+  <br/>
+  <br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>	 
+</body>
+</html>

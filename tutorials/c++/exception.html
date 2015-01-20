@@ -1,0 +1,167 @@
+<!--Excetion Handling -->
+<!-- Initially written by Akshika-->
+<!-- ©CSEC-NITH-->
+<html>
+<head>
+<title>Exception Handling</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" id="active">Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>C++ Exception Handling</h1>
+An exception is a problem that arises during the execution of a program. A C++ exception is a response to an exceptional circumstance that arises while a program is running, such as an attempt to divide by zero.Exceptions provide a way to transfer control from one part of a program to another.
+<br><br>
+C++ exception handling is built upon three keywords:<b><i> try, catch, and throw.</i></b>
+<br>
+
+<br><b>   throw: </b> A program throws an exception when a problem shows up. This is done using a throw keyword.
+<br><b>   catch: </b> A program catches an exception with an exception handler at the place in a program where you want to handle the problem. The catch keyword indicates the catching of an exception.
+<br><b>   try:</b> A try block identifies a block of code for which particular exceptions will be activated. It's followed by one or more catch blocks.
+<br><br>
+<h3> Detecting a Exception (Try Block)</h3>
+When a function might cause an exception, and therefore includes a statement that throws
+an exception, the call to the potentially offending function should be placed within a try
+block. A try block consists of one or more statements that the program attempts to execute,
+but which might result in thrown exceptions. 
+<br><b>For Example: </b><br>
+<pre><div id="Box">
+int main()
+{
+ int value;
+ try
+ {
+  value = getUserNumber();
+ }
+  cout &lt&lt "Data entry value is " &lt&lt value &lt&lt endl;                              
+  // rest of the program goes here
+}
+ P.S. this program is incomplete you can't use try block without catch block.
+</div>
+</pre>
+
+<br>
+<div id="Box">
+<b>Note :</b>
+1. try block consists of one or more statements that are guaranteed to throw exceptions when executed.<br>
+2. You want to place a function call in a try block when the function might throw an exception, because placing it in
+    a try block allows you to handle the problem that caused the exception.<br>
+3. When a try block contains just one statement, you still must enclose the statement in curly braces.
+</div>
+
+<h3>Throwing Exception</h3>
+Exceptions can be thrown anywhere within a code block using throw statements. The operand of the throw statements determines a type for the exception and can be any expression and the type of the result of the expression determines the type of exception thrown.<br><br>
+
+Following is an example of throwing an exception when dividing by zero condition occurs:
+<pre>
+<div id="Box">
+double division(int a, int b)
+{
+   if( b == 0 )
+   {
+      throw "Division by zero condition!";
+   }
+   return (a/b);
+}
+</div>
+</pre>
+<h3> Catching Exception</h3>
+To handle a thrown object, you include one or more catch blocks in your program immediately
+following a try block. A catch block contains statements that execute when an exception is
+thrown and includes the following components:
+<pre>
+* the keyword catch
+* a single parameter in parentheses
+* an opening curly brace
+* one or more statements that describe the exception action to be taken
+* a closing curly brace
+</pre>
+<b>For Example</b>
+<pre>
+<div id="Box">
+try
+{
+   // protected code
+}catch( ExceptionName e )
+{
+  // code to handle ExceptionName exception
+}
+</div></pre>
+
+Above code will catch an exception of ExceptionName type. If you want to specify that a catch block should handle any type of exception that is thrown in a try block, you must put an ellipsis, ..., between the parentheses enclosing the exception declaration as follows:
+<pre><div id="Box">
+try
+{
+   // protected code
+}catch(...)
+{
+  // code to handle any exception
+}
+</div>
+</pre>
+The following is an example, which throws a division by zero exception and we catch it in catch block.
+<pre><div id="Box">
+#include <iostream>
+using namespace std;
+
+double division(int a, int b)
+{
+   if( b == 0 )
+   {
+      throw "Division by zero condition!";
+   }
+   return (a/b);
+}
+
+int main ()
+{
+   int x = 50;
+   int y = 0;
+   double z = 0;
+ 
+   try {
+     z = division(x, y);
+     cout &lt&lt z &lt&lt endl;
+   }catch (const char* msg) {
+     cerr &lt&lt msg &lt&lt endl;
+   }
+
+   return 0;
+}
+</div>
+</pre>
+
+Because we are raising an exception of type const char*, so while catching this exception, we have to use const char* in catch block. If we compile and run above code, this would produce the following result:
+<br><b><pre><div id="Box">
+           		 Division by zero condition!
+</div></b>
+</pre>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

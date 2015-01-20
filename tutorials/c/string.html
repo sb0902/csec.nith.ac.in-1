@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>csec</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html" id="active">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+    <div class="main">
+
+<h1><center>Strings</center></h1>
+<p>The string in C programming language is actually a one-dimensional array of characters which is terminated by a null character '\0'. Thus a null-terminated string contains the characters that comprise the string followed by a null.<br/><br/>
+
+The following declaration and initialization create a string consisting of the word "csec". To hold the null character at the end of the array, the size of the character array containing the string is one more than the number of characters in the word "csec"<br/><br/>
+
+<div id="box">char greeting[5] = {'c', 's', 'e', 'c', '\0'};</div><br/><br/>
+
+If you follow the rule of array initialization then you can write the above statement as follows:<br/><br/>
+
+<div id="box">char greeting[] = "csec";</div><br/><br/>
+
+Following is the memory presentation of above defined string in C/C++:<br/><br/>
+
+<table>
+	<tr>
+		<th>0</th>
+    	<th>1</th>
+    	<th>2</th>
+    	<th>3</th>
+    	<th>4</th>
+    </tr>
+    <tr>
+    	<th>'c'</th>
+        <th>'s'</th>
+        <th>'e'</th>
+        <th>'c'</th>
+        <th>'/0'</th>
+    </tr>
+    <tr>
+    	<th>4001</th>
+        <th>4002</th>
+        <th>4003</th>
+        <th>4004</th>
+        <th>4005</th>
+    </tr>
+</table><br/><br/>
+
+Actually, you do not place the null character at the end of a string constant. The C compiler automatically places the '\0' at the end of the string when it initializes the array. Let us try to print above mentioned string:<br/><br/>
+<pre>
+<div id="box">
+#include <stdio.h>
+
+int main ()
+{
+   char greeting[5] = {'c', 's', 'e', 'c', '\0'};
+
+   printf("message: %s\n", greeting );
+
+   return 0;
+}
+</div></pre>
+<br/><br/>
+
+When the above code is compiled and executed, it produces result something as follows:
+<br/><br/>
+<div id="box">message: csec</div>
+<br/><br/>
+It can also be demonstrated as:
+<br/><br/>
+<pre><div id="box">
+main()
+{
+	char name[]="CSEC";
+    int i=0;
+    
+    while(i<=3)
+    {
+    	printf("%c",name[i]);
+        i++;
+    }
+}
+</div></pre>
+<br/><br/>
+Output:
+<br/><br/>
+<div id="box">csec</div>
+<br/><br/>
+WE can also write is as
+<br/><br/><pre>
+<div id="box">
+	while(name[i]!='\0')
+    {
+    	printf("%c",name[i]);
+        i++;
+    }
+</div></pre>
+<br/><br/>
+Another version for same program, this one uses a pointer to access the array elements.
+<br/><br/><pre>
+<div id="box">main()
+{
+	char name[]="csec";
+    char *ptr;
+    ptr=name;	/*store base address of string*/
+    while(*ptr!='\0')
+    {
+    	printf("%c",*ptr);
+        ptr++;
+    }
+}
+</div></pre>
+<br/><br/>
+While entering the string using scanf() we must be cautious about two things:<br/>
+(a) The length of the string should not exceed the dimension of the character array.<br/>
+(b) scanf() is not capable of receiving multi-word strings. Therefore, names such as 'Nit hamirpur' would be unacceptable. The usage of gets() in place of scanf() and its countrpart puts() is done.<br/><br/>
+
+
+
+<h2>Standard Library String Functions</h2>
+
+<table>
+	<tr>
+		<td><b>Function</b></td>
+    	<td><b>Use</b></td>
+    </tr>
+    <tr>
+    	<td>strcpy(s1, s2);</td>
+        <td>Copies string s2 into string s1.</td>
+    </tr>
+    <tr>
+    	<td>strcat(s1, s2);</td>
+        <td>Concatenates string s2 onto the end of string s1.</td>
+    </tr>
+    <tr>
+    	<td>strlen(s1);</td>
+        <td>Returns the length of string s1.</td>
+    </tr>
+    <tr>
+    	<td>strcmp(s1, s2);</td>
+        <td>Returns 0 if s1 and s2 are the same; less than 0 if s1<s2; greater than 0 if s1>s2</td>
+    </tr>
+    <tr>
+    	<td>strchr(s1, ch);</td>
+        <td>Returns a pointer to the first occurrence of character ch in string s1.</td>
+    </tr>
+    <tr>
+    	<td>strstr(s1, s2);</td>
+        <td>Returns a pointer to the first occurrence of string s2 in string s1.</td>
+    </tr>
+</table><br/><br/>
+
+For example:<br/><br/>
+<pre>
+<div id="box">
+#include <stdio.h>
+#include <string.h>
+
+int main ()
+{
+   char str1[12] = "Hello";
+   char str2[12] = "World";
+   char str3[12];
+   int  len ;
+
+   <i>/* copy str1 into str3 */</i>
+   strcpy(str3, str1);
+   printf("strcpy( str3, str1) :  %s\n", str3 );
+
+   <i>/* concatenates str1 and str2 */</i>
+   strcat( str1, str2);
+   printf("strcat( str1, str2):   %s\n", str1 );
+
+   <i>/* total lenghth of str1 after concatenation */</i>
+   len = strlen(str1);
+   printf("strlen(str1) :  %d\n", len );
+
+   return 0;
+}</div></pre>
+<br/><br/>
+When the above code is compiled and executed, it produces result something as follows:
+<br/><br/><pre>
+<div id="box">
+strcpy( str3, str1) :  Hello
+strcat( str1, str2):   HelloWorld
+strlen(str1) :  10
+</div></pre>
+<br/><br/>
+
+
+<h2>Two Dimensional array of character</h2>
+A list of names can be treated as a table of strings and a two-dimensional character array can be used to store the entire list.For example, a charater array cities[3][5] used to store a list of 3 names, each of length not more than 5 characters.Let us take a table of three cities:
+<br/><br/>
+<center><table>
+	<tr>
+    	<td>G</td>
+        <td>o</td>
+        <td>a</td>
+        <td>\0</td>
+        <td> </td>
+    </tr>
+    <tr>
+    	<td>P</td>
+        <td>u</td>
+        <td>n</td>
+        <td>e</td>
+        <td>\0</td>
+    </tr>
+    <tr>
+    	<td>U</td>
+        <td>n</td>
+        <td>a</td>
+        <td>\0</td>
+        <td> </td>
+    </tr>
+</table></center>
+<br/><br/>
+This table can be declared as:
+<br/><br/><pre>
+<div id="box">
+char city[][]
+{
+	"Goa";
+    "Pune";
+    "Una";
+}
+</div>
+</pre><br/><br/>
+To access the name of the ith city in the list, we write
+<br/><br/><pre>
+<div id="box">city[i-1];</div>
+</pre><br/><br/>
+where, city[0] denotes "Goa",city[1] denotes "Pune",city[2] denotes "Una",
+<br/><br/><br/>
+
+</p>
+  <br/>
+  <br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>   
+</body>
+</html>

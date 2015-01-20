@@ -1,0 +1,180 @@
+<!--Templates C++ -->
+<!-- Initially written by Akshika-->
+<!-- ©CSEC-NITH-->
+
+<html>
+<head><title>Templates</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+    <div class="home">
+       <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+    </div>
+    <div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html" id="active">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>Templates</h1>
+Templates in C++ programming allows function or class to work on more than one data type at once without writing different codes for different data types. Templates are often used in larger programs for the purpose of code reusability and flexibility of program. The concept of templetes can be used in two different ways:
+<br>* Class Templates
+<br>*Function template 
+<br><br>
+<h2>Class Template:</h2>
+
+
+The basic syntax for declaring a templated class is as follows:
+<br> 
+<pre>
+<div id="Box">
+ template (class a_type) class a_class {...};
+
+</div></pre>
+Here, type is the placeholder type name, which will be specified when a class is instantiated. You can define more than one generic data type by using a comma-separated list.<br><br>
+Following is the example to define class Stack<> and implement generic methods to push and pop the elements from the stack:<br>
+
+
+<pre>
+<div id="Box">
+#include &ltiostream&gt
+#include &ltvector&gt
+#include &ltcstdlib&gt
+#include &ltstring&gt
+#include &ltstdexcept&gt
+
+using namespace std;
+
+template &ltclass T&gt
+class Stack { 
+  private: 
+    vector&ltT&gt elems;     // elements 
+
+  public: 
+    void push(T const&);  // push element 
+    void pop();               // pop element 
+    T top() const;            // return top element 
+    bool empty() const{       // return true if empty.
+        return elems.empty(); 
+    } 
+}; 
+
+template &ltclass T&gt
+void Stack&ltT&gt::push (T const& elem) 
+{ 
+    // append copy of passed element 
+    elems.push_back(elem);    
+} 
+
+template &ltclass T&gt
+void Stack&ltT&gt::pop () 
+{ 
+    if (elems.empty()) { 
+        throw out_of_range("Stack<>::pop(): empty stack"); 
+    }
+	// remove last element 
+    elems.pop_back();         
+} 
+
+template &ltclass T&gt
+T Stack&gtT&lt::top () const 
+{ 
+    if (elems.empty()) { 
+        throw out_of_range("Stack<>::top(): empty stack"); 
+    }
+	// return copy of last element 
+    return elems.back();      
+} 
+
+int main() 
+{ 
+    try { 
+        Stack&ltint&gt         intStack;  // stack of ints 
+        Stack&ltstring&gt stringStack;    // stack of strings 
+
+        // manipulate int stack 
+        intStack.push(7); 
+        cout &lt&lt intStack.top() &lt&ltendl; 
+
+        // manipulate string stack 
+        stringStack.push("hello"); 
+        cout &lt&lt stringStack.top() &lt&lt std::endl; 
+        stringStack.pop(); 
+        stringStack.pop(); 
+    } 
+    catch (exception const& ex) { 
+        cerr &lt&lt "Exception: " &lt&lt ex.what() &lt&ltendl; 
+        return -1;
+    } 
+} 
+</div>
+</pre>
+
+
+<h2>Function Template:</h2>
+<br>A function templates work in similar manner as function but with one key difference. A single function template can work on different types at once but, different functions are needed to perform identical task on different data types. If you need to perform identical operations on two or more types of data then, you can use function overloading. But better approach would be to use function templates because you can perform this task by writing less code and code is easier to maintain.<br><br>
+The general form of a template function definition is shown here:
+<br><pre>
+
+<div id="Box">
+template &ltclass type&gt ret-type func-name(parameter list)
+{
+   // body of function
+} 
+
+</div></pre>
+<br><br>
+The following is the example of a function template that returns the maximum of two values:
+<br><pre>
+<div id="Box">
+#include &ltiostream>
+#include &ltstring>
+
+using namespace std;
+
+template &lttypename T>
+inline T const& Max (T const& a, T const& b) 
+{ 
+    return a &lt b ? b:a; 
+} 
+int main ()
+{
+ 
+    int i = 39;
+    int j = 20;
+    cout &lt&lt "Max(i, j): " &lt&lt Max(i, j) &lt&lt endl; 
+
+    double f1 = 13.5; 
+    double f2 = 20.7; 
+    cout &lt&lt "Max(f1, f2): " &lt Max(f1, f2) &lt&lt endl; 
+
+    string s1 = "Hello"; 
+    string s2 = "World"; 
+    cout &lt&lt "Max(s1, s2): " &lt&lt Max(s1, s2) &lt&lt endl; 
+
+   return 0;
+}
+</div>
+</pre>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

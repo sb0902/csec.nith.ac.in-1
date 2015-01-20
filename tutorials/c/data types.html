@@ -1,0 +1,262 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>Data Types</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html" id="active">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+    <div class="main">
+    
+<h1>DATA TYPES</h1>
+<p>In the C programming language, data types refers to an extensive system for declaring variables of different types. The language itself provides basic arithmetic types and syntax to build array and compound types. The C language defines 4 fundamental data types: 
+<ol>
+     
+	 <li><a href="#integer">Integer</a></li>
+	 <li><a href="#character">Character</a></li>
+	 <li><a href="#floating">Floating point</a></li>
+	 <li><a href="#double">Double-floating point</a></li>
+</ol>
+
+<h3><a name="integer">1. INTEGER </a></h3>
+<ul>
+    <li>Integer data type allow a variable to store a numeric value.</li>
+	<li>"int" keyword is used to refer integer data type.</li>
+	<li>The storage size of integre data type is 2 or 4 or 8 byte.</li>
+	<li>The range of integer depends upon the compiler. For a 16-bit compiler like Turbo C or Turbo C++ the range is -32768 to 32767. For a 32-bit compiler the range would be -2147483648 to +2147483647. </li>
+	<li>We can’t store decimal values using int data type.</li>
+	<li>If you want to use the integer value that crosses the above limit, you can go for “long int” and “long long int” for which the limits are very high.</li>
+</ul>
+
+<h3><a name="character">2. CHARACTER </a></h3>
+<ul>
+     <li>char is a special integer type designed for storing single characters.</li>
+	 <li>“char” keyword is used to refer character data type.</li>
+	 <li>Storage size of character data type is 1. We can store only one character using character data type.</li>
+</ul>
+
+<h3><a name="floating">3. FLOATING POINT </a></h3>
+<ul>
+     <li>Float data type allows a variable to store decimal values.</li>
+	 <li>A float occupies 4 bytes in a memory and can range from -3.4e38 to +3.4e38.</li>
+</ul>
+
+<h3><a name="double">4. DOUBLE-FLOATING POINT </a></h3>
+<ul>
+    <li>Double-precision floating point numbers are also numbers with a decimal point.</li>
+	<li>Double occupies 8 bytes in memory and has a range from -1.7e308 to +1.7e308.</li>
+</ul>
+
+<h2> MODIFIERS IN C </h2>
+<p>The amount of memory space to be allocated for a variable is derived by modifiers. Modifiers are prefixed with basic data types to modify (either increase or decrease) the amount of storage space allocated to a variable. For example, storage space for int data type is 4 byte for 32 bit processor. We can increase the range by using long int which is 8 byte. We can decrease the range by using short int which is 2 byte. 
+ There are 5 modifiers available in C :
+ <ul> 
+      <li>short</li>
+      <li>long</li>
+      <li>signed</li>
+       <li>unsigned</li>
+      <li>long long</li>
+</ul>
+
+<p>Below table gives the detail about the storage size of each C basic data type in 16 bit processor.</p>
+
+
+<style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<table>
+  <tr>
+    <th>S.no.</th>
+    <th>C Data types</th>		
+    <th>Storage size</th>
+	<th>Range</th>
+  </tr>
+  <tr>
+  <td>1.</td>
+    <td>char</td>
+    <td>1</td>		
+    <td>–127 to 127</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>int</td>
+    <td>2</td>		
+    <td>–32,767 to 32,767</td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>float</td>
+    <td>4</td>		
+    <td>-3.4e38 to +3.4e38</td>
+  </tr>
+  <tr>
+    <td>4.</td>
+	<td>double</td>
+	<td>8</td>
+	<td>-1.7e308 to +1.7e308</td>
+	<tr>
+	<td>5.</td>
+	<td>long double</td>
+	<td>10</td>
+	<td>-3.4e38 to +3.4e38</td>
+<tr>
+  <td>6.</td>
+  <td>signed char</td>
+  <td>1</td>
+  <td>-128 to +127</td>
+  </tr>
+
+<tr>
+  <td>7.</td>
+   <td>unsigned char</td>
+    <td>1</td>
+     <td>0 to 255 </td>
+</tr>
+
+<tr>
+   <td>8.</td>
+    <td>short signed int</td>
+     <td>2</td>
+      <td>-32768 to +32767</td
+></tr>
+ <tr>
+    <td>9.</td>
+    <td>short unsigned int</td>
+    <td>2</td>
+     <td>0 to 65535</td>
+</tr>
+    
+<tr>
+      <td>10.</td>
+        <td>signed int</td>
+       <td>4</td>
+       <td>-2147483648 to +2147483647</td>
+</tr>
+ 
+<tr>
+      <td>11.</td>
+      <td>unsigned int</td>
+       <td>4</td>
+      <td>0 to 4294967295</td>
+</tr>
+
+<tr>
+       <td>12.</td>
+       <td>long signed int</td>
+	   <td>4</td>
+        <td>-2147483647  to +2147483647</td>
+</tr>
+<tr>
+   <td>13.</td>
+   <td>long unsigned int</td>
+   <td>4</td>
+   <td>0 to 4294967295</td>
+</table>
+
+<h2> STORAGE CLASSES IN C </h2>
+<p>Every variable in C programming has two properties: type and storage class. Type refers to the data type of variable whether it is character or integer or floating-point value etc. And storage class determines how long it stays in existence. 
+There are 4 types of storage class:
+<ol>
+   <li>Automatic storage class</li>
+   <li>Register storage class</li>
+   <li>Static storage class</li>
+   <li>External storage class</li>
+</ol></p>
+
+<h2>Automatic storage class </h2>
+<h3>Keyword for automatic variable</h3>
+<pre>auto</pre>
+<p>  The features of a variable defined to have an automatic storage class are under:
+<ul>
+    <li> Storage               - Memory</li>
+	 <li>Default initial value - An unpredictable value, which is often called a garbage value.</li>
+	 <li>scope                 - Local to the block in which the variable is defined.</li>
+	 <li>life                  - Till the control remains within the block in which the variable is defined.</li>
+	 </ul>
+	 </p>
+<h2>Register storage class</h2>
+<h3>Keyword to declare register variable</h3>
+<pre>register</pre>
+<p> The features of a variable defined to be of register storage class are as under:
+<ul>
+     <li>Storage               - CPU registers.</li>
+	 <li>Default initial value - Garbage value.</li>
+	 <li>Scope                 - Local to the block in which the variable is defined.</li>
+	 <li>Life                  - Till the control remains within the block in which the variable is defined.</li>
+	 </ul>
+	 </p>
+<h2>Static storage class</h2>
+<p>The value of static variable persists until the end of the program. A variable can be declared static using keyword: <code>static</code>. For example:</p>
+<pre>static int i;</pre>
+<p>Here, <var>i</var> is a static variable.
+The features of a variable defined to have a <var>static</var> storage class are as under:
+<ul>
+     <li>Storage               - Memory</li>
+	 <li>Default initial value - Zero</li>
+	 <li>scope                 - Local to the block in which the variable is defined.</li>
+	 <li>life                  - Value of the variable persists between different function calls.</li>
+	 </ul>
+	 </p>
+	 
+	 <h2>External storage class</h2>
+	 <p>External variable can be accessed by any function. They are also known as global variables. Variables declared outside every function are external variables.
+	  The features of a variable whose storage class has been defined as external are as follows:
+	  <ul>
+	 <li> Storage               - Memory</li>
+	 <li> Default initial value - Zero</li>
+	 <li> Scope                 - Global</li>
+	  <li>Life                  - As long as the program's execution doesn't come to an end.</li>
+	  </ul>
+	  </p>
+  <br/>
+  <br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>	 
+</body>
+</html>

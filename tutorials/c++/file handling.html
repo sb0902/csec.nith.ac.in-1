@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>File Handling</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+   <div class="home">
+      <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+   </div>
+   <div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html" id="active">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>C++ Files and streams </h1>
+So far, we have been using the iostream standard library, which provides cin and cout methods for reading from standard input and writing to standard output respectively.<br><br>File Handling  requires another standard C++ library called fstream, which defines three new data types:
+<br><br><B>1)ofstream :</B>This data type represents the output file stream and is used to create files and to write information to files.
+<br><b>2)ifstream :</b>This data type represents the input file stream and is used to read information from files.
+<br><b>3)fstream  : </b>This data type represents the file stream generally, and has the capabilities of both ofstream and ifstream which means it can create files, write information to files, and read information from files.<br><br>
+<h2>Opening a File:</h2>
+
+A file must be opened before you can read from it or write to it. Either the ofstream or fstream object may be used to open a file for writing and ifstream object is used to open a file for reading purpose only.<br><br>
+
+Following is the standard syntax for open() function, which is a member of fstream, ifstream, and ofstream objects.<br><br>
+<div id="Box">
+void open(const char *filename, ios::openmode mode);
+</div><br>
+Here, the firvst argument specifies the name and location of the file to be opened and the second argument of the open() member function defines the mode in which the file should be opened.<br><br>
+<table>
+   <tr>
+      <td>ios::app</td>
+      <td>Append mode. All output to that file to be appended to the end.</td>
+   </tr>
+   <tr>
+      <td>ios::ate</td>
+      <td>Open a file for output and move the read/write control to the end of the file.</td>
+   </tr>
+	<tr>
+      <td>ios::in </td>
+      <td>Open a file for reading.</td>
+   </tr>
+   <tr>
+      <td>ios::out</td>
+      <td>Open a file for writing.</td>
+   </tr>
+    <tr>
+      <td>ios::trunc</td>
+      <td>If the file already exists, its contents will be truncated before opening the file.</td>
+   </tr>    
+	
+</table>	
+
+P.S. You can combine two or more of these values by ORing them together. <br><br>
+<h2>Closing a File</h2>
+When a C++ program terminates it automatically closes flushes all the streams, release all the allocated memory and close all the opened files. But it is always a good practice that a programmer should close all the opened files before program termination.
+<br><br>Following is the standard syntax for close() function, which is a member of fstream, ifstream, and ofstream objects.
+<div id="Box">
+void close();
+</div><br>
+<h2>Writing to a File:</h2>
+
+While doing C++ programming, you write information to a file from your program using the stream insertion operator (&lt&lt) just as you use that operator to output information to the screen. The only difference is that you use an ofstream or fstream object instead of the cout object.
+<br>
+<h2>Reading from a File:</h2>
+You read information from a file into your program using the stream extraction operator (>>) just as you use that operator to input information from the keyboard. The only difference is that you use an ifstream or fstream object instead of the cin object.<br><br>
+
+<h2>Read & Write Example:</h2>
+
+Following is the C++ program which opens a file in reading and writing mode. After writing information inputted by the user to a file named afile.dat, the program reads information from the file and outputs it onto the screen:
+<pre><div id="Box">
+
+#include &ltfstream>
+#include &ltiostream&gt
+using namespace std;
+ 
+int main ()
+{
+    
+   char data[100];
+
+   // open a file in write mode.
+   ofstream outfile;
+   outfile.open("afile.dat");
+
+   cout &lt&lt "Writing to the file" &lt&lt endl;
+   cout &lt&lt "Enter your name: "; 
+   cin.getline(data, 100);
+
+   // write inputted data into the file.
+   outfile &lt&lt data &lt&lt endl;
+
+   cout &lt&lt "Enter your age: "; 
+   cin &gt&gt data;
+   cin.ignore();
+   
+   // again write inputted data into the file.
+   outfile &lt&lt data &lt&lt endl;
+
+   // close the opened file.
+   outfile.close();
+
+   // open a file in read mode.
+   ifstream infile; 
+   infile.open("afile.dat"); 
+ 
+   cout &lt&lt "Reading from the file" &lt&lt endl; 
+   infile &gt&gt data; 
+
+   // write the data at the screen.
+   cout &lt&ltdata &lt&lt endl;
+   
+   // again read the data from the file and display it.
+   infile &gt&gt data; 
+   cout &lt&ltdata &lt&lt endl; 
+
+   // close the opened file.
+   infile.close();
+
+   return 0;
+}
+
+</div></pre>
+<h2>File Position Pointers:</h2>
+Both istream and ostream provide member functions for repositioning the file-position pointer. These member functions are seekg ("seek get") for istream and seekp ("seek put") for ostream.<br><br>
+The argument to seekg and seekp normally is a long integer. A second argument can be specified to indicate the seek direction. The seek direction can be ios::beg (the default) for positioning relative to the beginning of a stream, ios::cur for positioning relative to the current position in a stream or ios::end for positioning relative to the end of a stream.<br><br>
+
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

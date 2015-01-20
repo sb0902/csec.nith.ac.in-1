@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>console i/o</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html" id="active">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+
+<div class="main">
+
+<br>
+<h1>The Console Input/Output</h1>
+<br>
+<p>The C programming language has no provision for receiving data from any of the input devices (like say keyboard, disk, etc.), or for sending data to the output devices (like say VDU, disk, etc.). We intend to learn how we manage I/O, inspite of the fact stated above, henceforth.</p>
+<br>
+<p>In the coming sections, we will learn about :
+<ul><li><a href="#typesIO">Types of I/O</a></li>
+	<li><a href="#IOfunc">The Console I/O Functions</a></li>
+	<li><a href="#formatIOfunc">Formatted Console I/O Functions</a></li>
+	<li><a href="#unformatIOfunc">Unformatted Console I/O Functions</a></li>
+</ul>	
+	
+<br>
+<h3><a id="typesIO">Types of I/O</a></h3>
+<br>
+<p>There are numerous library functions available for I/O. These can be classified into three broad categories as below :</p>
+<ul> <li> Console I/O functions : Functions to receive input from keyboard and write output to VDU.</li>
+	<li> File I/O functions : Functions to perform I/O operations on a floppy disk or hard disk.</li>
+</ul>
+
+<br>
+<h3><a id="IOfunc">The Console I/O Functions</a></h3>
+<br>
+<p>The screen and keyboard together are called a console. The console functions can be further divided into the following :
+<ul>
+	<li>Formatted console I/O functions : These allow the input read from the keyboard or the output displayed on the VDU to be formatted as per the requirements. e.g. scanf(), printf()</li>
+	<li>Unformatted console I/O functions : These do not allow formatted input or output. e.g. getch(), getche(), getchar(), gets, putch(), putchar(), puts()</li>
+</ul></p>
+
+<br>
+<h3><a id="formatIOfunc">Formatted Console I/O Functions</a></h3>
+<br>
+<p>These functions allow us to supply the input in a fixed format and let us obtain the output in the specified form. As discussed, scanf() and printf() fall under this category.
+<br>
+The syntax of <b>printf()</b> looks like :
+<div id="box">printf ( "format string", list of variables ) ;</div>
+where the format string can contain :
+<ul><li>Characters that are simply printed as they are</li>
+	<li>Conversion specifications that begin with a % sign</li>
+	<li>Escape sequences that begin with a \ sign</li>
+</ul>
+
+<br>
+The syntax of <b>scanf()</b> looks like :
+<div id="box">scanf ( "format string", list of addresses of variables ) ;</div>
+For example :
+<div id="box">scanf ( "%d %f %c", &c, &a, &ch ) ;</div>
+We have already used these functions in numerous examples before.<br>
+NOTE : Do not include escape sequences in the format string.</p>
+
+<br>
+<h3><a id="unformatIOfunc">Unformatted Console I/O Functions</a></h3>
+<br>
+<p>Under this category, we have functions that deal with either a single character or a string of characters.</p>
+
+<br>
+<h4>Functions that deal with a single character</h4>
+<p>A weakness of <i>scanf()</i> is that we have to hit ENTER before the function can digest what we have typed. <b>getch()</b> and <b>getche()</b> are two functions that overcome this weakness. These functions return the character that has been most recently typed. The ‘e’ in getche( ) function means it echoes (displays) the character that you typed to the screen. As against this getch( ) just returns the character that you typed without echoing it on the screen.<br>
+<b>getchar()</b> works similarly and echoes the character that you typed on the screen, but unfortunately requires Enter key to be typed following the character that you typed.
+<br>
+<pre><div id="box">main()
+{
+	char ch;
+	ch = getchar();
+}</div></pre>
+<br>
+<b>putch()</b> and <b>putchar()</b> print a character on the screen. Their working is the same.
+<br>
+This is shown in the example:
+<pre><div id="box">main( )
+{
+	char c = 'C';
+	putch ( ch );
+	putchar ( ch );
+	putch ( 'A' );
+	putchar ( 'M' );
+}</div></pre>
+The output is CCAM</p>
+
+<br>
+<h4>Functions that deal with a string of characters</h4>
+<br>
+<p>Another weakness of <i>scanf()</i> is that it reads a string until it encounters a space. i.e. you cannot have strings having spaces input using this function. This is overcome by using <b>gets()</b> function. It is terminated when an Enter key is hit. Thus, spaces and tabs are perfectly acceptable as part of the input string.<br>
+The <b>puts()</b> function outputs a string to the screen.<br>
+The following program shows the use of these two functions:
+<pre><div id="box">main( )
+{
+	char footballer[40] ;
+	puts ( "Enter name" ) ;
+	gets ( footballer ) ; /* sends base address of array */
+	puts ( "Happy footballing!" ) ;
+	puts ( footballer ) ;
+}</div><pre></p>
+
+  <br/>
+  <br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>	 
+</body>
+</html>

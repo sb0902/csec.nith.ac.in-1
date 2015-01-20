@@ -1,0 +1,300 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>FUNCTIONS</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html" id="active">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html" >Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>FUNCTIONS IN C++</h1>
+<h2>Functions</h2>
+<p>Functions play an important role in c program development.Dividing a program into functions is one of the major principles of top down,structured programming.Another advantage of using functions is that it is possible to reduce the size of a program by calling and using them at different places in the program.<br/>
+EXAMPLE:
+<pre>
+<div id="box">
+ void show();    <i>//prototype</i>
+ main()
+ {
+  show();        <i>//function call</i>
+ }
+ void show()     <i>//function defination</i>
+ { ..
+   ..
+ }</div> 
+</pre>
+
+<br/>
+When the function is called,control is transferred to the first statement in the function body.The other statements in the function body are then executed and control returns to the main program when closing brace is encountered.C++ is no exception.Functions continue to be the building blocks of C++ programs.In fact,C++ has added many features to functions to make them more reliable and flexible.Like C++ operators,a
+C++ function can be overloaded to make it perform different tasks depending on the arguments passed to it.Most of these modifications are aimed at meeting the object-oriented facilities.
+</p>
+<h2>FUNCTION PROTOTYPING</h2>
+<p>
+Functions in one of the major improvements added to C++ functions.The prototype desribes the function interface to the compiler by giving details such as the number and type of arguments and the type of return values.With funtcion prototyping,a template is always used when declaring and defining a function.When a function is called,the compiler uses the template to ensure that proper arguments are passed,and the return value is treated correctly.Any violation in matching the arguments or the return types will be caught by the compiler at the time of compilation itself.
+ <pre>
+ <div id="box">
+ type function-name(argument-list);
+ 
+ EXAMPLE:
+ float volume(int x,int y,int z);
+ but,
+ float value(int x,y,z); is illegal
+ </div>
+</pre>
+
+</p>
+<h2><u>Arguments passed by value and by reference.</u></h2>
+<p>
+Until now, in all the functions we have seen, the arguments passed to the functions have been passed by value.
+This means that when calling a function with parameters, what we have passed to the function were copies of their
+values but never the variables themselves. For example, suppose that we called our first function addition using
+the following code:<pre>
+int x=5, y=3, z;
+z = addition ( x , y );</pre><br/>
+What we did in this case was to call to function addition passing the values of x and y, i.e. 5 and 3 respectively, but
+not the variables x and y themselves.<br/>
+This way, when the function addition is called, the value of its local variables a and b become 5 and 3 respectively,
+but any modification to either a or b within the function addition will not have any effect in the values of x and y
+outside it, because variables x and y were not themselves passed to the function, but only copies of their values at
+the moment the function was called.
+But there might be some cases where you need to manipulate from inside a function the value of an external
+variable. For that purpose we can use arguments passed by reference, as in the function duplicate of the following
+example:<pre>
+<div id="box">
+// passing parameters by reference
+#include < iostream >
+using namespace std;
+
+void duplicate (int& a, int& b, int& c)
+{
+a*=2;
+b*=2;
+c*=2;
+}
+int main ()
+{
+int x=1, y=3, z=7;
+duplicate (x, y, z);
+cout << "x=" << x << ", y=" << y << ", z=" << z;
+return 0;</div>
+}</pre><br/>
+The first thing that should call your attention is that in the declaration of duplicate the type of each parameter
+was followed by an ampersand sign (&). This ampersand is what specifies that their corresponding arguments are
+to be passed by reference instead of by value.
+If when declaring the following function:<pre>
+void duplicate (int& a, int& b, int& c)
+we had declared it this way:
+void duplicate (int a, int b, int c)</pre>
+i.e., without the ampersand signs (&), we would have not passed the variables by reference, but a copy of their
+values instead, and therefore, the output on screen of our program would have been the values of x, y and z
+without having been modified.
+Passing by reference is also an effective way to allow a function to return more than one value. For example, here
+is a function that returns the previous and next numbers of the first parameter passed.
+</p><pre><p>
+<div id="box">
+// more than one returning value
+#include < iostream >
+using namespace std;
+
+void prevnext (int x, int& prev, int& next)
+{
+prev = x-1;
+next = x+1;
+}
+int main ()
+{
+int x=100, y, z;
+prevnext (x, y, z);
+cout << "Previous=" << y << ", Next=" << z;
+return 0;
+}
+</div>
+output:
+Previous=99, Next=101
+</pre>
+
+</p>
+<h2>INLINE FUNCTIONS</h2>
+<p>
+The inline specifier indicates the compiler that inline substitution is preferred to the usual function call mechanism
+for a specific function. This does not change the behavior of a function itself, but is used to suggest to the compiler
+that the code generated by the function body is inserted at each point the function is called, instead of being
+inserted only once and perform a regular call to it, which generally involves some additional overhead in running
+time.
+The format for its declaration is:
+<pre>inline type name ( arguments ... ) { instructions ... }</pre>
+and the call is just like the call to any other function. You do not have to include the inline keyword when calling
+the function, only in its declaration.
+SOME OF THE SITUATIONS WHERE INLINE EXPANSIONS MAY NOT WORK ARE:
+<ul>
+<li>For functions returning values,if a loop,a switch,or goto exits.</li>
+<li>For functions not returning values,if a return statements exists.</li>
+<li>If functions contain static variables.</li>
+<li>If inline functions are recursive.</li>
+</ul>
+
+</p>
+<h2>DEFAULT ARGUMENTS</h2>
+<p>
+In C++ programming, you can provide default values for function parameters. The idea behind default argument is very simple. If a function is called by passing argument/s, those arguments are used by the function. But if all argument/s are not passed while invoking a function then, the default value passed to arguments are used. Default value/s are passed to argument/s in function prototype. 
+</p>
+<p> 
+<pre>
+<div id="box">
+/*  C++ Program to demonstrate working of default argument    */
+
+#include < iostream >
+using namespace std;
+
+void display(char c='*', int a= 1)
+{
+puts(c);
+}
+
+int main() 
+  {
+    cout<<"No argument passed:\n";
+    display();
+    
+    cout<<"\n\nFirst argument passed:\n";
+    display('#');
+    
+    cout<<"\n\nBoth argument passed:\n";
+    display('$', 5);
+
+    return 0;
+ }
+
+</div>
+</pre>
+</p>
+<h2>RECURSION</h2>
+<p>
+Recursivity is the property that functions have to be called by themselves. It is useful for many tasks, like sorting
+or calculate the factorial of numbers. For example, to obtain the factorial of a number (n!) the mathematical
+formula would be:
+n! = n * (n-1) * (n-2) * (n-3) ... * 1
+more concretely, 5! (factorial of 5) would be:
+5! = 5 * 4 * 3 * 2 * 1 = 120
+and a recursive function to calculate this in C++ could be:
+<pre></p>
+<div id="box">
+// factorial calculator
+#include < iostream >
+using namespace std;
+
+long factorial (long a)
+{
+if (a > 1)
+return (a * factorial (a-1));
+else
+return (1);
+}
+int main ()
+{
+long number;
+cout << "Please type a number: ";
+cin >> number;
+cout << number << "! = " << factorial (number);
+return 0;
+}
+
+OUTPUT:
+Please type a number: 9
+9! = 362880
+</div></pre>
+Notice how in function factorial we included a call to itself, but only if the argument passed was greater than 1,
+since otherwise the function would perform an infinite recursive loop in which once it arrived to 0 it would continue
+multiplying by all the negative numbers (probably provoking a stack overflow error on runtime).
+This function has a limitation because of the data type we used in its design (long) for more simplicity. The results
+given will not be valid for values much greater than 10! or 15!, depending on the system you compile it.
+</p>
+<h2>OVERLOADED FUNCTION</h2>
+<p>
+In C++ two or more different functions can have the same name if their parameter types or number are different. That
+means that you can give the same name to more than one function if they have either a different number of
+parameters or different types in their parameters. For example:
+</p><pre>
+<div id="box">
+// overloaded function
+
+#include < iostream >
+
+using namespace std;
+int operate (int a, int b)
+{
+return (a*b);
+}
+float operate (float a, float b)
+{
+return (a/b);
+}
+int main ()
+{
+int x=5,y=2;
+float n=5.0,m=2.0;
+cout << operate (x,y);
+cout << "\n";
+cout << operate (n,m);
+cout << "\n";
+return 0;
+}
+</div></pre>
+In this case we have defined two functions with the same name, operate, but one of them accepts two parameters
+of type int and the other one accepts them of type float. The compiler knows which one to call in each case by
+examining the types passed as arguments when the function is called. If it is called with two ints as its arguments
+it calls to the function that has two int parameters in its prototype and if it is called with two floats it will call to
+the one which has two float parameters in its prototype.
+In the first call to operate the two arguments passed are of type int, therefore, the function with the first
+prototype is called; This function returns the result of multiplying both parameters. While the second call passes
+two arguments of type float, so the function with the second prototype is called. This one has a different
+behavior: it divides one parameter by the other. So the behavior of a call to operate depends on the type of the
+arguments passed because the function has been overloaded.
+Notice that a function cannot be overloaded only by its return type. At least one of its parameters must have a
+different type.<br/>
+Overloaded functions are selected for the best match of function declarations in the current scope to the arguments supplied in the function call. If a suitable function is found, that function is called. "Suitable" in this context means one of the following:
+<ul>
+<li> An exact match was found.</li>
+
+<li> A trivial conversion was performed.</li>
+
+<li> An integral promotion was performed.</li>
+
+ <li>A standard conversion to the desired argument type exists.</li>
+
+ <li>A user-defined conversion (either conversion operator or constructor) to the desired argument type exists.</li>
+
+ <li>Arguments represented by an ellipsis were found.</li>
+</ul>
+
+A set of "best matching functions" is built for each argument, and the selected function is the intersection of all the sets. If the intersection contains more than one function, the overloading is ambiguous and generates an error.
+</p>	
+<br/>
+<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

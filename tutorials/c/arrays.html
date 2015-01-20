@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>csec</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+  <div class="home">
+     <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+  </div>
+  <div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html" id="active">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html" >File Input/Output</a></li>
+  </ul>
+</div>
+    <div class="main">
+	<h1><center>ARRAYS</center></h1>
+    <p>
+
+An array is a sequenced collection of related data items that share a commom name.<br/>
+All arrays consist of contiguous memory locations. The lowest address corresponds to the first element and the highest address to the last element.<br/><br/>
+    
+     <center><table>
+     	<tr>
+        	<th>first element<br/> &darr;  </th>
+        	<th></th>
+        	<th></th>
+        	<th></th>
+            <th>last element<br/>    &darr;  </th>
+        </tr>
+     	<tr class="array">
+        	<td>Element[0]</td>
+            <td>Element[1]</td>
+            <td>Element[2]</td>
+            <td>--------</td>
+            <td>Element[n]</td>
+        </tr>
+  </table></center><br/><br/>
+ 
+
+There are following few important concepts related to array which should be clear to a C programmer:<br/>
+<ul>
+	<li><a href="#types">Types of arrays</a></li>
+    <li><a href="#fxn">Passing array to a Function</a></li>
+    <li><a href="#pointer">Pointers and arrays</a></li>
+</ul>    
+     
+<h2><a name="types">Types of arrays:</a></h2>
+	<ul>
+    	<li><a href="#one">One-dimensional arrays</a></li>
+        <li><a href="#two">Two-dimensional arrays</a></li>
+        <li><a href="#three">Three-dimensional arrays</a></li>
+    </ul>
+    <br/><br/><br/>
+  
+    
+<h2><a name="one">One-dimensional arrays</a></h2><br/>
+Like any other variable, arrays must be declared before they are used so that the compiler can allocate space for them in memory. The general form of array declaration is<br/>
+ 
+<pre><div id="box">type variable-name[size];</div></pre><br/>
+
+This is called a single-dimensional array. The size must be an integer constant greater than zero and type can be any valid C data type. For example, to declare a 9-element array called height of type float, use this statement:<br/>
+
+<div id="box">float height[9];</div><br/>
+
+Now balance is avariable array which is sufficient to hold upto 10 double numbers.
+<br/>
+
+
+<h2>Initializing Arrays</h2><br/>
+After an array is declared, its elements must be initialised. Otherwise, they will contain "garbage". An array can be initialised at either of the following stages:<br/>
+<ul type="disc">
+	<li>At compile time</li>
+    <li>At run time</li>
+</ul>
+<br/><br/>
+
+<b>Compile Time Initialization</b><br/>
+The general form of initialization of arrays is:<br/><br/>
+
+<div id="box">type array-name[size]={list of values};</div>
+<br/><br/>
+For example,
+<br/>
+<div id="box">float total[5]={0.0,15.75,-10};</div>
+<br/><br/>
+will initialise the first three element to 0.0,15.75,-10 and the remaining two elements to zero.
+<br/>
+The size can be omitted. In such case, the compiler allocates enough space for all initialized elements.<br/>
+Character arrays may be initialized in a similar manner.For example,<br/>
+<br/>
+<div id="box">char name[]={'R','A','M','/0'};</div>
+<br/><br/>
+declares the name to be an array of four characters,initialized with the string "RAM" ending with null character. We call also asign the string as:
+<br/><br/>
+<div id="box">char name[]="RAM";</div>
+<br/><br/><br/>
+
+<b>Run Time Initialization</b><br/>
+An array can be explicitly initialised at run time. We read the function such as scanf to initalize an array.For example,
+<br/><br/>
+<div id="box">int x[3];
+<br/>
+scanf("%d%d%d",&x[0],&x[1],&x[2]);</div><br/><br/>
+will initialize array elements with the values entered through keyboard.
+<br/><br/><br/>
+
+For example:<br/><br/>
+<pre>
+<div id ="box">
+#include <stdio.h>
+ 
+int main ()
+{
+   int n[ 10 ]; <i>/* n is an array of 10 integers */</i>
+   int i;
+ 
+   <i>/* initialize elements of array n to 0 */</i>       
+   for ( i = 0; i < 10; i++ )
+   {
+      scanf("%d",&n[i]); <i>/* reading the elements */</i>
+   }
+   
+   <i>/* output each array element's value */</i>
+   for (i= 0; i < 10; i++ )
+   {
+      printf("n[%d] = %d\n", i, n[i] );
+   }
+ 
+   return 0;
+}
+</div></pre>
+
+
+
+<h2><a name="two">Two-dimensional arrays</a></h2><br/>
+The simplest form of the multidimensional array is the two-dimensional array. A two-dimensional array is, in essence, a list of one-dimensional arrays. To declare a two-dimensional integer array of size x,y you would write something as follows:<br/>
+
+<div id="box">type arrayName [ x ][ y ];</div><br/>
+
+Where type can be any valid C data type and arrayName will be a valid C identifier. A two-dimensional array can be think as a table which will have x number of rows and y number of columns. A 2-dimensional array <b>a</b>, which contains two rows and three columns can be shown as below:<br/><br/>
+		
+<center><table>
+	<tr>
+    	<th>        </th>
+    	<th>column0</th>
+        <th>column1</th>
+        <th>column2</th>
+    </tr>
+    <tr>
+    	<th>row0</th>
+		<td>a[0][0];</td>
+        <td>a[0][1];</td>
+		<td>a[0][2];</td>
+    </tr>
+    <tr>
+    	<th>row1</th>
+        <td>a[1][0];</td>
+        <td>a[1][1];</td>
+		<td>a[1][2];</td>
+    </tr>
+</table></center>
+<br/><br/><br/>
+
+Thus, every element in array <b>a</b> is identified by an element name of the form a[ i ][ j ], where <b>a</b> is the name of the array, and i and j are the subscripts that uniquely identify each element in <b>a</b>.
+<br/><br/>
+
+<h2>Initializing Two-Dimensional Arrays:</h2>
+<br/><br/>
+Multidimensional arrays may be initialized by specifying bracketed values for each row. Following is an array with 3 rows and each row has 4 columns.<br/><br/>
+
+<pre><div id="box">int a[2][3] = {  
+ {0, 1, 2} ,   <i>/*  initializers for row indexed by 0 */</i>
+ {3, 4, 5} ,  <i> /*  initializers for row indexed by 1 */</i>
+};</div></pre>
+<br/><br/>
+The nested braces, which indicate the intended row, are optional. The following initialization is equivalent to previous example:
+<br/><br/>
+<div id="box">int a[2][3] = {0,1,2,3,4,5};</div>
+<br/><br/>
+
+<h2>Accessing Two-Dimensional Array Elements:</h2><br/>
+
+An element in 2-dimensional array is accessed by using the subscripts, i.e., row index and column index of the array. For example:
+<br/><br/>
+<div id="box">int val = a[2][3];</div>
+<br/><br/>
+The above statement will take 4th element from the 3rd row of the array. You can verify it in the above diagram. Let us find the transpose of two N*N matrices:<br/>
+<br/>
+<pre><div id="box">
+#include <stdio.h>
+ 
+int main ()
+{
+ 	int i,j,a[3][3],b[3][3];
+    printf("Enter a 3*3 matrix:\n");
+    for(i=0;i<3;i++)
+    {
+    	for(j=0;j<3;j++)
+        {
+        	printf("a[%d][%d]=",i,j);
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("\nThe entered matrix is:\n");
+    for(i=0;i<3;i++)
+    {
+    	printf("\n");
+        for(j=0;j<3;j++)
+        {
+        	printf("%d\t",a[i][j]);
+        }
+    } 
+    for(i=0;i<3;i++)
+    {
+    	for(j=0;j<3;j++)
+        b[i][j]=a[j][i];    <i> \*to find transpose of the matrix*\</i>
+    }
+    printf("\n\nThe transpose of the matrix is:\n");
+    
+    for(i=0;i<3;i++)
+    {
+    	printf("\n");
+        for(j=0;j<3;j++)
+        {
+        	printf("%d\t",b[i][j]);
+        }
+    }
+    getch();
+}
+</div></pre>
+
+<br/><br/><br/>
+
+The output is:<br/>
+<br/>
+<pre><div id="box">
+enter a 3*3 matrix:
+a[0][0]=1;
+a[0][1]=2;
+a[0][2]=3;
+a[1][0]=4;
+a[1][1]=5;
+a[1][2]=6;
+a[2][0]=7;
+a[2][1]=8;
+a[2][2]=9;
+The entered matrix is:
+1 2 3
+4 5 6
+7 8 9
+The transpose of the matrix is:
+1 4 7
+2 5 8
+3 6 9
+</div><br/>
+<br/>
+As explained above, you can have arrays with any number of dimensions, although it is likely that most of the arrays you create will be of one or two dimensions.
+<br/><br/><br/>
+
+<h2><a name="three">Multi-dimensional arrays</a></h2><br/>
+C programming language allows multidimensional arrays. Here is the general form of a multidimensional array declaration:
+<br/><br/>
+<div id="box">type name[size1][size2]...[sizeN];</div>
+<br/><br/>
+For example, the following declaration creates a three dimensional 5, 10, 4 integer array:
+<br/><br/>
+<div id="box">int threedim[5][10][4];</div>
+<br/><br/><br/>
+
+<h2><a name="fxn">Passing array to function</a></h2><br/>
+Array elements can be passed to a function by calling the function by value, or by reference. In the call by value we pass values of array elements to the function, whereas in the call by reference we pass addresses of array elements to the function.<br/>
+<br/>
+<pre><div id="box">
+	<i>/*Demonstration of call by value*/</i>
+main()
+{
+	int i;
+    int marks[]={5,6,7,8,9};
+    for(i=0;i<=6;i++)
+    display(marks[i]);
+}
+
+display(int m)
+{
+	printf("%d",m);
+}    
+</div></pre>
+<br/><br/>
+The output is:<br/><br/>
+
+<div id="box">
+	5,6,7,8,9
+</div><br/><br/>
+
+Note that since at a time only one element is being passed, this element is collected in an ordinary integer variable m, in the function display().
+<br/><br/><br/>
+  
+<b>And now the call by reference.</b>
+<br/><br/>
+<pre><div id="box">
+	<i>/*Demonstration of call by reference*/</i>
+main()
+{
+	int i;
+    int marks[]={5,6,7,8,9};
+    for(i=0;i<=6;i++)
+    display(&marks[i]);
+}
+
+display(int *m)
+{
+	printf("%d",*m);
+}    
+</div></pre>
+
+The output is:<br/><br/>
+
+<div id="box">
+	5,6,7,8,9
+</div>
+<br/><br/>
+Here we are passing addresses of individual array elements to the function display().<br/>
+The variable in which this address is collected(m) is declared as a pointer variable. And since m contains the address of array element, to print out the array element we are using the 'value at address' operator(*).<br/><br/><br/>
+
+
+
+<h2><a name="pointer">Pointers and array</a></h2><br/>
+Assuming you have bit understanding on pointers in C programming language, let us start: An array name is a constant pointer to the first element of the array. Therefore, in the declaration:<br/>
+<br/>
+<div id="box">double balance[50];</div><br/><br/>
+
+balance is a pointer to &balance[0], which is the address of the first element of the array balance. Thus, the following program fragment assigns p the address of the first element of balance:<br/>
+<br/><pre>
+<div id="box">double *p;
+double balance[10];
+p = balance;</div>
+</pre><br/><br/>
+It is legal to use array names as constant pointers, and vice versa. Therefore, *(balance + 4) is a legitimate way of accessing the data at balance[4].<br/><br/>
+
+Once you store the address of first element in p, you can access array elements using *p, *(p+1), *(p+2) and so on. Below is the example to show all the concepts discussed above:
+<br/><br/>
+<pre><div id="box">
+#include <stdio.h>
+
+int main ()
+{
+   <i>/* an array with 5 elements */</i>
+   double balance[5] = {1000.0, 2.0, 3.4, 17.0, 50.0};
+   double *p;
+   int i;
+
+   p = balance;
+ 
+   <i>/* output each array element's value */</i>
+   printf( "Array values using pointer\n");
+   for ( i = 0; i < 5; i++ )
+   {
+       printf("*(p + %d) : %f\n",  i, *(p + i) );
+   }
+
+   printf( "Array values using balance as address\n");
+   for ( i = 0; i < 5; i++ )
+   {
+       printf("*(balance + %d) : %f\n",  i, *(balance + i) );
+   }
+ 
+   return 0;
+}</div></pre>
+<br/><br/>
+When the above code is compiled and executed, it produces the following result:
+<br/><br/>
+<pre><div id="box">
+Array values using pointer
+*(p + 0) : 1000.000000
+*(p + 1) : 2.000000
+*(p + 2) : 3.400000
+*(p + 3) : 17.000000
+*(p + 4) : 50.000000
+Array values using balance as address
+*(balance + 0) : 1000.000000
+*(balance + 1) : 2.000000
+*(balance + 2) : 3.400000
+*(balance + 3) : 17.000000
+*(balance + 4) : 50.000000</div></pre>
+<br/><br/><br/>
+In the above example, p is a pointer to double, which means it can store address of a variable of double type. Once we have address in p, then *p will give us value available at the address stored in p, as we have shown in the above example.
+     </p>
+  <br/>
+  <br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>   
+</body>
+</html>

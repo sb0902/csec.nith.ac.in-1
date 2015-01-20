@@ -1,0 +1,167 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+<title>Structures</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png" alt="home" title="home page"/></a>
+	</div>
+	<div id="heading"> C TUTORIALS </div>
+</div>
+<div class="nav">
+  <ul>
+    <li><a href="index.html">Getting Started</a></li>
+    <li> <a href="decision.html"> Decision Control Structure </a></li>
+    <li><a href="loop.html">Loop Control Structure</a></li>
+    <li><a href="function.html">Functions & pointer</a></li>
+    <li><a href="data types.html">Data Types</a></li>
+    <li><a href="preprocessor.html">The C preprocessor</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="string.html">Strings</a></li>
+    <li><a href="structure.html" id="active">Structures</a></li>
+    <li><a href="console io.html">Console Input/Output</a></li>
+    <li><a href="file io.html">File Input/Output</a></li>
+  </ul>
+</div>
+<div class="main">
+<h1>Structure</h1>
+<p>Structure contains a number of data types grouped together.These data types may or
+may not be of the same type.</br>
+There are two aspects of structures:</br>
+(a)declaration of a structure</br>
+(b)accessing of structure elements</br>
+
+<h3>Declaring a structure</h3>
+The general form of a structure declaration statement is given below:</br>
+<pre><div id="box">
+     struct<structure name>
+	 {
+	    structure element 1;
+		structure element 2;
+		structure element 3;
+		...
+		...
+	};
+	</div></pre>
+ Let us take and example of structure to better understand it:</br>
+ <pre><div id='box'>
+      struct book
+	  {
+	    char name;
+		float price;
+		int pages;
+		}
+</div></pre>
+This statement defines a new data type called struct book. Each of the variable of this data type will 
+consists of a char variable called <b>name</b>, a float variable called <b>price</b> and an int variable
+called <b>pages</b>.</br>
+
+Once the new structure data type has been defined, one or more variables can be declared to be of that type.</br>
+For example, the variables <b>b1,b2,b3</b> can be declared to be of the type <b>struct book</b>, a</br>
+<pre><div id="box">
+    struct book b1,b2,b3;
+	</div>
+	</pre>
+<b>NOTE</b>:1. Above statement sets aside space in memory.</br>
+2. These bytes are always adjacent memory locations.</br>
+3.We can combine the declaration of the structure type and the structure variables in one statement.</br>
+<pre><div id="box">
+    struct book
+	{ 
+	char name;
+	float price;
+	int pages;
+	};
+	struct book b1,b2,b3;
+	</div></pre>
+	is same as...</br>
+	<pre><div id="box">
+    struct book
+	{ 
+	char name;
+	float price;
+	int pages;
+	} b1,b2,b3;
+	</div></pre>
+4.Structure variables can also be initialized where they are declared.</br>	
+<pre><div id="box">
+    struct book
+	{ 
+	char name;
+	float price;
+	int pages;
+	};
+	struct book b1={"Basic",130.00,550};
+	struct book b1={"Physics",150.80,800};
+	struct book b1={0};
+	</div></pre>
+	If a structure variable is initiated to value {0},then all its elements are set to value 0.</br>
+	
+<h3>Accessing Structure Elements</h3>
+Structure use a dot (.) operator.before the dot, there must always be a structure variable and after
+the dot, there must always be a structure element.</br>
+<h3>How Structure Elements are stored</h3>
+Whatever be the elements of a structure, they are always stored in contiguous memory locations.</br>
+
+<h3>Array of structures</h3>
+In our sample program above, to store data of 100 books, we would be required to use 100 different 
+structure variables from b1 to b100, which is definitely not very convenient.A better approach would be to
+use an array of structures.</br>
+(a)how the array of structures is declared....</br>
+<pre><div id="box">
+      struct book b[100]
+	  </div></pre>
+This provides space in memory for 100 structures of the type <b>struct book</b>.</br>
+(b)The syntax use for reference each element of the array b is similar to the syntax used for arrays of 
+ints and chars.</br>
+For example:We refer to zeroth book's price as b[0].price.</br>
+(c)In an array of structure, all elements are always stored in adjacent memory locations.</br>
+
+<h3>Additional Features of Structures</h3>
+(a)The value of a structure variable can be assigned to another structure variable of the same type using the 
+assignment operator.(not necessary to copy piece-meal)</br>
+(b)One structure can be nested in other structure</br>
+for example:</br>
+<pre><div id="box">
+  struct  address
+  {
+     char phone[15];
+	 char city[25];
+	 int pin;
+	 };
+	 
+	  struct emp
+	  {
+	    char name[25];
+		struct address a;
+		};
+	</div></pre>
+ To access the element of a structure that is part i=fo another structure, dot operator is used twice, as in the 
+ expression,</br>
+<pre><div id="box">
+    e.a.pin or e.a.city
+</div></pre>
+We can nest a structure within a structure within a structure, within another structure,and so on...</br>
+(c)Like an ordinary variable, a structure variable can also be passed to a function.WE may either pass individual structure
+ elements or the entire structure variable at one shot</br>
+(d)The way we can have a pointer pointing to an int, or a pointer pointing to a char, similarly we can have a pointer pointing 
+to a structure.</br>
+<pre><div id="box">
+   consider the previous example
+        struct book b1;
+        struct book *ptr ; //pointer to structure
+        ptr=&b1;
+</div></pre>
+<pre>C provides an operator ->, called an arrow operator to refer to the structure elements.</pre>
+</p>
+<br>
+<br>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>		

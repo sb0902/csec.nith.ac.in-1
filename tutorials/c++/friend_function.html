@@ -1,0 +1,123 @@
+<! doctype html>
+<html>
+<head>
+<title>friend function</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+	<div class="home">
+	   <a href="http://csec.nith.ac.in/" target="_blank"><img src="../home.png"/></a>
+	</div>
+	<div id="heading"> C++ TUTORIALS </div>
+</div>
+<div class="nav">
+    <ul>
+      <li><a href="index.html" >Introduction</a></li>
+      <li><a href="tokens.html">Tokens</a></li>
+      <li><a href="function.html">Functions</a></li>
+      <li><a href="class.html">Classes and Objects</a></li>
+      <li><a href="friend_function.html" id="active">Friend Function</a></li>
+      <li><a href="constructor.html">Constructors and Destructors</a></li>
+      <li><a href="operator_overload.html">Operator Overloading</a></li> 
+      <li><a href="inheritance.html">Inheritance</a></li>
+      <li><a href="file handling.html">File Handling</a></li>
+      <li><a href="Templates.html">Templates</a></li>
+      <li><a href="exception.html" >Exception Handling</a></li>
+      <li><a href="stl.html">Standard Template Library</a></li>
+    </ul>
+</div>
+<div class="main">
+<h1>FRIENDLY FUNCTIONS</h1>
+<p>We have seen till now that a non-member function cannot access the private members of a class. But it is possible using <b>friend function.</b>To make a function "<i>friendly</i>" to a class, we have to declare it as the friend of the class using <b>friend</b> keyword.For eg. :
+
+<pre>
+	<div id="box">
+class abc
+{
+   ......
+   ......
+   public:
+   ......
+   ......
+   friend void xyz();	//function declarartion
+}</div>
+</pre>
+The friend function can be defined anywhere in the program like a normal C++ function.The function defination does not consists of keyword <b>friend</b>.Friend function has the following properties:
+<ol>
+  <li>It is not in the scope of the class.</li>
+   <li>It can be invoked like a normal function without use of object.</li>
+   <li>It can access the private members of the class using object and dot operator.</li>
+	<li>It can be declared in either private or public section.</li>
+   <li>It has usually objects as arguements.</li>
+</ol>
+<pre>
+<div id="box">
+
+<xmp>#include <iostream> </xmp>
+using namespace std;
+class book
+{
+ 	int a,b;
+ 	public: void set()
+ 			{
+ 				a=20; b=90;
+ 			}
+ 			friend float mean(book b1);
+ };
+float mean(book b1)
+{
+	return float (b1.a+b1.b)/2.0;
+}
+int main()
+{
+	book b2;
+	b2.set();
+	cout<<"mean= "<< mean(b2);
+	return 0;
+}
+</div>
+</pre>
+
+<p> Member functions of one class can also be used as friend function of another class.The defination of such functions is as follows:
+<pre>
+	<div id="box">
+class X
+{
+ 	....
+ 	....
+ 	int fun();
+ };
+class Y
+{
+	.....
+	.....
+	friend int X :: fun();	// fun() of X is friend of Y
+	.....
+};
+</div>
+</pre>
+<h2>FRIEND CLASS</h2>
+<p>We can also declare a class as a friend of another class.If class ABC is declared as the friend class of class XYZ, all the member functions of class ABC can access the privatemembers of class XYZ.
+<pre>
+	<div id="box">
+class ABC;
+class XYZ
+{
+	....
+	...
+	public:
+	......
+	friend class ABC;
+};
+</div>
+</pre>
+</p>
+<br/>
+<br/>
+</div>
+<a href="#" id="top"><img src="../top.png"/></a>
+</div>
+</body>
+</html>

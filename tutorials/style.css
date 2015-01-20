@@ -1,0 +1,148 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{                                        
+	margin:0px;
+	padding:0px;
+}
+.main, .main p, .main li, .main td{
+font-family: Estrangelo Edessa;
+}
+.wrapper{
+	width:1300px;
+	margin:0px auto;
+	padding:0px;
+	background-color: #d5d4d1;
+	
+	}
+th{
+	font-size:15px;
+	padding:1px;
+	color:#003;
+	}
+
+table tr,td{
+	border:1px solid black;
+	font-size:14px;
+	padding:1px;
+	}
+body{
+	height:100%;
+}
+
+#box{
+	background-color: #bcbbb8;
+	color:#331833;
+	font-weight: bold;
+	margin: 5px 15px;
+	padding:2px 15px;
+	-moz-box-shadow: 0 0 10px #777777;
+	-webkit-box-shadow: 0 0 10px #777777;
+	box-shadow: 0 0 10px #777777;
+	}
+
+.header{
+	position:fixed;
+	top:0px;
+	height:60px;
+	background-color:#93bf9e;
+	width:1300px;
+	text-align: center;
+	color:#411E41;
+	font-size: 50px;
+	z-index:0;
+	}
+#heading{
+	
+	font-family:Bellerose;
+    src: url('fonts/Bellerose.ttf');
+    margin-top:-50px;
+    font-weight:bold;
+    text-shadow:-1px -1px #8e6c8e;
+}
+	
+.nav{
+	float:left;
+	position: fixed;
+	width:150px;
+	height:100%;
+	margin-top:0px;
+	margin-right:20px;
+	background-color: #88b490;
+	padding:10px;
+	z-index: 1;
+	}
+.nav ul{
+	list-style-type: none;
+	margin-top:30px;
+} 
+.nav li{
+	margin-bottom: 10px;
+	border-bottom: 1px solid black;
+	
+}	
+	
+.main{
+	margin-left:200px;
+	margin-top:60px;
+	z-index: 0;
+	}
+
+	
+
+.home
+{
+	width:170px;
+	height:60px;
+	float:left;
+	background-color: #5ea36d;
+	top:0px;
+}
+.home img
+{	position:relative;
+	top:-5px;
+}
+h1,h2,h3,h4{
+	margin:10px 0px 5px 0px;
+	text-transform: uppercase;
+	
+}
+h1{
+	text-align: center;
+	font-family: ebrima;
+	font-weight: normal;
+	color:#291729;
+	text-shadow:1px 1px #411e41;
+	position: relative;
+	right:20px;
+	text-transform: uppercase;
+}
+a{
+	color:#291729;
+	font-weight: bold;
+}
+.nav a{
+	text-decoration:none;
+	color:#28332a;
+	font-size: 12pt;
+	font-weight: bold;
+}
+.nav a:hover{
+	
+	color:#648069;
+}
+#active{
+	color:#648069;;
+}
+
+#top{
+	position:fixed;
+	top:60px;
+	float:right;
+	width:1300px;
+	z-index: 1;
+	text-align: right;
+}
+#top:hover{
+	text-decoration: underline;
+}
