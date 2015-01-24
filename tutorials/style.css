@@ -25,8 +25,9 @@ font-family: Estrangelo Edessa;
 	text-align: center;
 	color:#411E41;
 	font-size: 50px;
-	z-index:0;
+	z-index:1;
 	}
+	
 #heading{
 	
 	font-family:Bellerose;
