@@ -15,6 +15,69 @@ font-family: Estrangelo Edessa;
 	background-color: #d5d4d1;
 	
 	}
+
+.header{
+	position:fixed;
+	top:0px;
+	height:60px;
+	background-color:#93bf9e;
+	width:1300px;
+	text-align: center;
+	color:#411E41;
+	font-size: 50px;
+	z-index:0;
+	}
+#heading{
+	
+	font-family:Bellerose;
+    src: url('fonts/Bellerose.ttf');
+    margin-top:-50px;
+    font-weight:bold;
+    text-shadow:-1px -1px #8e6c8e;
+}
+
+	
+.nav{
+	float:left;
+	position: fixed;
+	width:150px;
+	height:100%;
+	margin-top:0px;
+	margin-right:20px;
+	background-color: #88b490;
+	padding:10px;
+	z-index: 1;
+	}
+.nav ul{
+	list-style-type: none;
+	margin-top:30px;
+} 
+.nav li{
+	margin-bottom: 10px;
+	border-bottom: 1px solid black;
+	
+}	
+
+	
+.main{
+	margin-left:200px;
+	margin-top:60px;
+	z-index: 0;
+	}
+
+	
+.home
+{
+	width:170px;
+	height:60px;
+	float:left;
+	background-color: #5ea36d;
+	top:0px;
+}
+.home img
+{	position:relative;
+	top:-5px;
+}
 th{
 	font-size:15px;
 	padding:1px;
@@ -41,67 +104,9 @@ body{
 	box-shadow: 0 0 10px #777777;
 	}
 
-.header{
-	position:fixed;
-	top:0px;
-	height:60px;
-	background-color:#93bf9e;
-	width:1300px;
-	text-align: center;
-	color:#411E41;
-	font-size: 50px;
-	z-index:0;
-	}
-#heading{
-	
-	font-family:Bellerose;
-    src: url('fonts/Bellerose.ttf');
-    margin-top:-50px;
-    font-weight:bold;
-    text-shadow:-1px -1px #8e6c8e;
-}
-	
-.nav{
-	float:left;
-	position: fixed;
-	width:150px;
-	height:100%;
-	margin-top:0px;
-	margin-right:20px;
-	background-color: #88b490;
-	padding:10px;
-	z-index: 1;
-	}
-.nav ul{
-	list-style-type: none;
-	margin-top:30px;
-} 
-.nav li{
-	margin-bottom: 10px;
-	border-bottom: 1px solid black;
-	
-}	
-	
-.main{
-	margin-left:200px;
-	margin-top:60px;
-	z-index: 0;
-	}
 
-	
 
-.home
-{
-	width:170px;
-	height:60px;
-	float:left;
-	background-color: #5ea36d;
-	top:0px;
-}
-.home img
-{	position:relative;
-	top:-5px;
-}
+
 h1,h2,h3,h4{
 	margin:10px 0px 5px 0px;
 	text-transform: uppercase;
@@ -143,6 +148,4 @@ a{
 	z-index: 1;
 	text-align: right;
 }
-#top:hover{
-	text-decoration: underline;
-}
+

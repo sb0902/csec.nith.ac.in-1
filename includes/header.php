@@ -49,7 +49,8 @@
 								<li>
 									<a href="../index.php#about" class="gn-icon gn-icon-download">About</a>
 								</li>
-								<li><a href="./index.php#whatwedo" class="gn-icon gn-icon-cog">What We do</a></li>
+								<li><a href="./index.php#whatwedo" class="gn-icon gn-icon-cog">What We do</a></li>						
+								<li><a href="../tutorials/index.html" class="gn-icon gn-icon-cog">Tutorials</a></li>						
 								<li><a href="./index.php#Activities" class="gn-icon gn-icon-article">Activities</a></li>
 								<li><a href="../gallery.php" class="gn-icon gn-icon-pictures">Gallery</a></li>
 								<?php
